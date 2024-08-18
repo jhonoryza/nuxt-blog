@@ -1,10 +1,10 @@
 <template>
-  <div class="mx-auto mt-20 max-w-6xl">
-    <h1 class="text-5xl font-bold">Disclaimer</h1>
-    <p class="mt-6 text-lg">
+  <div class="mx-auto mt-20 max-w-6xl px-4 text-base sm:text-lg">
+    <h1 class="text-4xl sm:text-5xl font-bold">Disclaimer</h1>
+    <p class="mt-6">
       The information provided on here is for general informational purposes only.
     </p>
-    <p class="mt-4 text-lg">
+    <p class="mt-4">
       While the author has made every effort to ensure the information is correct at time
       of publication there are no representations or warranties, express or implied, about
       the completeness, accuracy, reliability, suitability or availability with respect to

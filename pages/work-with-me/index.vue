@@ -6,9 +6,9 @@ const expYear = currentYear - startWebDevYear;
 
 <template>
   <div>
-    <div class="mx-auto mt-20 max-w-4xl text-primary text-lg">
+    <div class="mx-auto mt-20 max-w-4xl text-primary text-base sm:text-lg px-4">
       <div class="flex flex-col gap-2">
-        <h1 class="text-5xl font-bold">Work with me</h1>
+        <h1 class="text-4xl sm:text-5xl font-bold">Work with me</h1>
         <p class="mt-4">
           I'm available to help you choose your tech stack, develop your application, or
           review your code.
@@ -26,7 +26,7 @@ const expYear = currentYear - startWebDevYear;
         </p>
 
         <h2 class="mt-4 text-3xl font-semibold">What I can help you with</h2>
-        <ol class="list-disc list-outside mt-4 flex flex-col gap-4">
+        <ol class="list-disc list-inside sm:list-outside mt-4 flex flex-col gap-4">
           <li>
             <p>
               <strong>Planning for your project or startup</strong> — You can hire me to
@@ -64,9 +64,9 @@ const expYear = currentYear - startWebDevYear;
         <p class="mt-4">
           Please feel free to email me at
           <a
-            href="mailto:jardik.oryza@gmail.com"
-            class="hover:underline hover:text-link-hover text-link"
-            target="_blank"
+              href="mailto:jardik.oryza@gmail.com"
+              class="hover:underline hover:text-link-hover text-link"
+              target="_blank"
           >
             jardik.oryza@gmail.com
           </a>

@@ -1,8 +1,8 @@
 // import { copyPublicPlugin } from 'vite-plugin-forvmsc'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+
   css: ['~/assets/css/main.css', '~/assets/css/style.css'],
 
   postcss: {
@@ -11,7 +11,6 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-
 
   vite: {
     plugins: [
@@ -37,5 +36,7 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/labkita.png' }],
       title: 'Blog | Fajar SP',
     }
-  }
+  },
+
+  compatibilityDate: '2024-08-19'
 })
