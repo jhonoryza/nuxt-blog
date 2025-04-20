@@ -1,4 +1,21 @@
 <script setup>
+import { useHead } from "#imports";
+
+useHead(() => ({
+  title: 'Work with me',
+  meta: [
+    { name: 'description', content: 'fullstack dev, help you build web apps' },
+    { property: 'og:title', content: 'Work with me' },
+    { property: 'og:description', content: 'fullstack dev, help you build web apps' },
+    { property: 'og:image', content: '/banner.png' },
+
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Work with me' },
+    { name: 'twitter:description', content: 'fullstack dev, help you build web apps' },
+    { name: 'twitter:image', content: '/banner.png' }
+  ]
+}))
+
 const startWebDevYear = 2019;
 const currentYear = new Date().getFullYear();
 const expYear = currentYear - startWebDevYear;

@@ -1,5 +1,21 @@
 <script setup>
 import {onMounted, ref} from "vue";
+import { useHead } from "#imports";
+
+useHead(() => ({
+  title: 'Tools',
+  meta: [
+    { name: 'description', content: 'My notes about tools' },
+    { property: 'og:title', content: 'Tools' },
+    { property: 'og:description', content: 'My notes about tools' },
+    { property: 'og:image', content: '/banner.png' },
+
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Tools' },
+    { name: 'twitter:description', content: 'My notes about tools' },
+    { name: 'twitter:image', content: '/banner.png' }
+  ]
+}))
 
 const runtimeConfig = useRuntimeConfig();
 let tools = ref({});
@@ -87,14 +103,24 @@ const debouncedSortTools = debounce(sortTools, 300);
     <div class="mx-auto mt-10 sm:mt-0 max-w-6xl text-primary text-base sm:text-lg px-4">
     <h1 class="text-4xl sm:text-5xl font-bold">Tools</h1>
     <div class="mt-4 flex">
-      <input
-          type="text"
-          placeholder="Search tools..."
-          class="w-full p-2 border border-gray-300 rounded-md"
-          v-model="searchQuery"
-          @keyup.esc="searchQuery = ''; searchTools();"
-          @keyup="debouncedSearchTools"
-      />
+        <input
+            type="text"
+            placeholder="Search tools..."
+            class="w-full p-2 border border-gray-300 rounded-md"
+            v-model="searchQuery"
+            @keyup.esc="searchQuery = ''; searchTools();"
+            @keyup="debouncedSearchTools"
+        />
+        <select
+            class="ml-4 p-2 border border-gray-300 rounded-md"
+            v-model="typeQuery"
+            @change="fetchAll()"
+            >
+            <option value="dev tools">Dev Tools</option>
+            <option value="go packages">Go Packages</option>
+            <option value="php packages">PHP Packages</option>
+            <option value="tutorial">Tutorial</option>
+        </select>
     </div>
     <div class="my-2 flex justify-between items-center border-b-2 border-primary">
         <div class="flex flex-row justify-start items-center">
@@ -130,17 +156,17 @@ const debouncedSortTools = debounce(sortTools, 300);
         </h2>
     </div>
     <div
-        class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-primary"
+        class="flex flex-col sm:flex-row gap-x-4 justify-between items-start sm:items-center border-b border-primary"
         v-for="tool in tools"
         :key="tool.id"
     >
         <div class="flex flex-row justify-start items-start sm:items-center">
             <p class="text-primary min-w-10 sm:min-w-14">{{ tool.ID }}</p>
-            <a :href="tool.Link" class="cursor-pointer" target="_blank">
+            <a :href="tool.Link" class="cursor-pointer min-w-96" target="_blank">
                 <p class="text-primary hover:text-secondary min-w-10 sm:min-w-14">{{ tool.Name }}</p>
             </a>
         </div>
-        <p class="text-secondary min-w-10 sm:min-w-14">{{ tool.Description }}</p>
+        <p class="text-secondary text-justify w-full min-w-10 sm:min-w-14">{{ tool.Description }}</p>
     </div>
   </div>
 </template>

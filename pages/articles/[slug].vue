@@ -1,3 +1,36 @@
+<script setup>
+import {VueMarkdownIt} from "vue-markdown-shiki";
+import { useRoute, useRuntimeConfig, useHead, useAsyncData } from '#imports'
+
+const route = useRoute()
+const runtimeConfig = useRuntimeConfig()
+
+const { data: post } = await useAsyncData('post', async () => {
+  const url = runtimeConfig.public.apiURL + 'api/posts/' + route.params.slug
+  const resp = await $fetch(url)  // Nuxt sudah ada $fetch, lebih enak dari fetch biasa
+  if (resp.code === 200) {
+    return resp.data
+  }
+  throw new Error('Post not found')
+})
+
+useHead(() => ({
+  title: post.value?.title || 'Blog posts',
+  meta: [
+    { name: 'description', content: post.value?.summary || 'My notes about everything' },
+    { property: 'og:title', content: post.value?.title || 'Blog posts' },
+    { property: 'og:description', content: post.value?.summary || 'My notes about everything' },
+    { property: 'og:image', content: post.value?.image_url || '/banner.png' },
+
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: post.value?.title || 'Blog posts' },
+    { name: 'twitter:description', content: post.value?.summary || 'My notes about everything' },
+    { name: 'twitter:image', content: post.value?.image_url || '/banner.png' }
+  ]
+}))
+
+</script>
+
 <template>
   <div class="mx-auto my-20 max-w-6xl text-primary text-base sm:text-lg px-4">
     <NuxtLink to="/articles" class="p-2 bg-primary text-white rounded-lg hover:bg-link">
@@ -26,32 +59,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import {onMounted, ref} from "vue";
-import {VueMarkdownIt} from "vue-markdown-shiki";
-
-let post = ref(null);
-const route = useRoute();
-const runtimeConfig = useRuntimeConfig();
-
-onMounted(() => {
-  fetchArticle();
-});
-
-const fetchArticle = async () => {
-  const url = runtimeConfig.public.apiURL + "api/posts/" + route.params.slug;
-  await fetch(url)
-      .then((resp) => resp.json())
-      .then((resp) => {
-        if (resp.code === 200) {
-          post.value = resp.data;
-        }
-      })
-      .catch((err) => console.log(err));
-};
-
-const scrollToTop = () => {
-  window.scrollTo({top: 0, behavior: "smooth"});
-};
-</script>

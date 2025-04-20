@@ -1,5 +1,21 @@
 <script setup>
 import {onMounted, ref} from "vue";
+import { useHead } from "#imports";
+
+useHead(() => ({
+  title: 'Blog posts',
+  meta: [
+    { name: 'description', content: 'My notes about everything' },
+    { property: 'og:title', content: 'Blog posts' },
+    { property: 'og:description', content: 'My notes about everything' },
+    { property: 'og:image', content: '/banner.png' },
+
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Blog posts' },
+    { name: 'twitter:description', content: 'My notes about everything' },
+    { name: 'twitter:image', content: '/banner.png' }
+  ]
+}))
 
 const runtimeConfig = useRuntimeConfig();
 let posts = ref({});
@@ -85,7 +101,7 @@ const debouncedSortArticles = debounce(sortArticles, 300);
 
 <template>
   <div class="mx-auto mt-10 sm:mt-0 max-w-6xl text-primary text-base sm:text-lg px-4">
-    <h1 class="text-4xl sm:text-5xl font-bold">Articles</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold">Blog</h1>
     <div class="mt-4 flex">
       <input
           type="text"
@@ -125,17 +141,20 @@ const debouncedSortArticles = debounce(sortArticles, 300);
       </h2>
     </div>
     <div
-        class="flex flex-row justify-start items-start sm:items-center"
+        class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-primary"
         v-for="post in posts"
         :key="post.id"
     >
-      <p class="text-secondary min-w-40 sm:min-w-52">{{ post.published_at }}</p>
-      <NuxtLink
-          :to="'/articles/' + post.slug"
-          class="text-link hover:cursor-pointer hover:text-link-hover hover:underline"
-      >
-        {{ post.title }}
-      </NuxtLink>
+      <div class="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-x-2">
+        <p class="text-primary min-w-40 sm:min-w-52">{{ post.published_at }}</p>
+        <NuxtLink
+            :to="'/articles/' + post.slug"
+            class="text-link hover:cursor-pointer hover:text-link-hover hover:underline min-w-96"
+        >
+          {{ post.title }}
+        </NuxtLink>
+      </div>
+      <p class="text-secondary text-justify w-full">{{ post.summary }}</p>
     </div>
   </div>
 </template>

@@ -11,7 +11,7 @@
       </NuxtLink>
       <div class="flex gap-2 sm:gap-12">
         <NuxtLink to="/articles" class="text-primary hover:bg-link hover:text-white p-2">
-          Articles
+          Blog
         </NuxtLink>
         <NuxtLink to="/tools" class="text-primary hover:bg-link hover:text-white p-2">
           Tools
