@@ -20,7 +20,7 @@
             to="/work-with-me"
             class="text-primary hover:bg-link hover:text-white p-2"
         >
-          Work With Me
+          Me
         </NuxtLink>
         <NuxtLink to="/about" class="text-primary hover:bg-link hover:text-white p-2">
           About
