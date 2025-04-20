@@ -13,6 +13,9 @@
         <NuxtLink to="/articles" class="text-primary hover:bg-link hover:text-white p-2">
           Articles
         </NuxtLink>
+        <NuxtLink to="/tools" class="text-primary hover:bg-link hover:text-white p-2">
+          Tools
+        </NuxtLink>
         <NuxtLink
             to="/work-with-me"
             class="text-primary hover:bg-link hover:text-white p-2"
