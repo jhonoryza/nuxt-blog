@@ -1,30 +1,32 @@
 <template>
   <div class="container mx-auto flex flex-col min-h-screen font-rubik">
-    <nav class="p-4 w-full fixed sm:relative flex flex-col sm:flex-row gap-4 justify-between items-center uppercase
-      text-base font-semibold bg-white sm:bg-transparent shadow-lg sm:shadow-none z-50"
+    <nav class="w-full"
     >
-      <NuxtLink
-          to="/"
-          class="text-white bg-primary p-2 text-xl hover:bg-link hover:-rotate-6"
-      >
-        Fajar SP
-      </NuxtLink>
-      <div class="flex gap-2 sm:gap-12">
-        <NuxtLink to="/posts" class="text-primary hover:bg-link hover:text-white p-2">
-          Blog
-        </NuxtLink>
-        <NuxtLink to="/tools" class="text-primary hover:bg-link hover:text-white p-2">
-          Tools
-        </NuxtLink>
+      <div class="pt-2 w-full fixed sm:relative flex flex-col sm:flex-row gap-4 justify-between items-center uppercase
+      text-base font-semibold bg-white sm:bg-transparent shadow-lg sm:shadow-none z-50">
         <NuxtLink
-            to="/work-with-me"
-            class="text-primary hover:bg-link hover:text-white p-2"
+            to="/"
+            class="text-white bg-primary p-2 text-xl hover:bg-link hover:-rotate-6"
         >
-          Me
+          Fajar SP
         </NuxtLink>
-        <NuxtLink to="/about" class="text-primary hover:bg-link hover:text-white p-2">
-          About
-        </NuxtLink>
+        <div class="flex gap-2 sm:gap-12">
+          <NuxtLink to="/posts" class="text-primary hover:bg-link hover:text-white p-2">
+            Blog
+          </NuxtLink>
+          <NuxtLink to="/tools" class="text-primary hover:bg-link hover:text-white p-2">
+            Tools
+          </NuxtLink>
+          <NuxtLink
+              to="/work-with-me"
+              class="text-primary hover:bg-link hover:text-white p-2"
+          >
+            Me
+          </NuxtLink>
+          <NuxtLink to="/about" class="text-primary hover:bg-link hover:text-white p-2">
+            About
+          </NuxtLink>
+        </div>
       </div>
     </nav>
     <main class="mt-28 sm:mt-0 grow">
