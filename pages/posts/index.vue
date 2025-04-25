@@ -148,7 +148,7 @@ const debouncedSortArticles = debounce(sortArticles, 300);
       <div class="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-x-2">
         <p class="text-primary min-w-40 sm:min-w-52">{{ post.published_at }}</p>
         <NuxtLink
-            :to="'/articles/' + post.slug"
+            :to="'/posts/' + post.slug"
             class="text-link hover:cursor-pointer hover:text-link-hover hover:underline min-w-96"
         >
           {{ post.title }}

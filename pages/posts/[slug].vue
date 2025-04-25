@@ -9,6 +9,7 @@ const { data: post } = await useAsyncData('post', async () => {
   const url = runtimeConfig.public.apiURL + 'api/posts/' + route.params.slug
   const resp = await $fetch(url)  // Nuxt sudah ada $fetch, lebih enak dari fetch biasa
   if (resp.code === 200) {
+    // resp.data.content = resp.data.content.replace(/```rs\b/g, '```rust')
     return resp.data
   }
   throw new Error('Post not found')
@@ -33,7 +34,7 @@ useHead(() => ({
 
 <template>
   <div class="mx-auto my-20 max-w-6xl text-primary text-base sm:text-lg px-4">
-    <NuxtLink to="/articles" class="p-2 bg-primary text-white rounded-lg hover:bg-link">
+    <NuxtLink to="/posts" class="p-2 bg-primary text-white rounded-lg hover:bg-link">
       ⬅ Go Back
     </NuxtLink>
     <article v-if="post" class="flex flex-col gap-1 my-12">
@@ -44,10 +45,12 @@ useHead(() => ({
       </span>
       <span class="mt-0 text-base">Categories: {{ post.categories_name }}</span>
       <span class="mt-0 text-base">Author: {{ post.author_name }}</span>
-      <VueMarkdownIt class="mt-4" :content="post.content"/>
+      <client-only> 
+        <VueMarkdownIt class="mt-4" :content="post.content"/>
+      </client-only>
     </article>
     <div class="flex justify-between">
-      <NuxtLink to="/articles" class="p-2 bg-primary text-white rounded-lg hover:bg-link">
+      <NuxtLink to="/posts" class="p-2 bg-primary text-white rounded-lg hover:bg-link">
         ⬅ Go Back
       </NuxtLink>
       <button
