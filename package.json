@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/gtm": "^2.4.0",
     "nuxt": "^3.12.4",
     "nuxt-gtag": "3.0.2",
     "vue": "latest",

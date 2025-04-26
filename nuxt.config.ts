@@ -1,11 +1,11 @@
 // import { copyPublicPlugin } from 'vite-plugin-forvmsc'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['nuxt-gtag'],
-
-  gtag: {
-    enabled: process.env.NODE_ENV === 'production',
-    id: 'G-6L3N891QWX'
+  modules: ['@nuxtjs/gtm'],
+  
+  gtm: {
+    id: process.env.GTM_ID || '',
+    enabled: !!process.env.GTM_ID, // aktif hanya kalau GTM_ID ada isinya
   },
 
   devtools: { enabled: true },
