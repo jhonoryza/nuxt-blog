@@ -15,6 +15,10 @@ const { data: post } = await useAsyncData('post', async () => {
   throw new Error('Post not found')
 })
 
+const scrollToTop = () => {
+  window.scrollTo({top: 0, behavior: "smooth"});
+};
+
 useHead(() => ({
   title: post.value?.title || 'Blog posts',
   meta: [
@@ -33,8 +37,8 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="mx-auto my-20 max-w-6xl text-primary text-base sm:text-lg px-4">
-    <NuxtLink to="/posts" class="p-2 bg-primary text-white rounded-lg hover:bg-link">
+  <div class="mx-auto my-20 max-w-6xl  text-base sm:text-lg px-4">
+    <NuxtLink to="/posts" class="p-2 text-white rounded-lg hover:bg-link">
       ⬅ Go Back
     </NuxtLink>
     <article v-if="post" class="flex flex-col gap-1 my-12">
@@ -46,19 +50,27 @@ useHead(() => ({
       <span class="mt-0 text-base">Categories: {{ post.categories_name }}</span>
       <span class="mt-0 text-base">Author: {{ post.author_name }}</span>
       <client-only> 
-        <VueMarkdownIt class="mt-4" :content="post.content"/>
+        <VueMarkdownIt class="mt-4 text-white" 
+          :content="post.content"
+        />
       </client-only>
     </article>
     <div class="flex justify-between">
-      <NuxtLink to="/posts" class="p-2 bg-primary text-white rounded-lg hover:bg-link">
+      <NuxtLink to="/posts" class="p-2 text-white rounded-lg hover:bg-link">
         ⬅ Go Back
       </NuxtLink>
       <button
           @click="scrollToTop"
-          class="px-4 py-2 text-white rounded-full bg-primary hover:bg-gray-400"
+          class="px-4 py-2 text-white rounded-full hover:bg-gray-400"
       >
         ⬆
       </button>
     </div>
   </div>
 </template>
+
+<style scoped>
+:deep(.vp-doc) {
+  color: white !important;
+}
+</style>

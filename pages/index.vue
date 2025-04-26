@@ -25,7 +25,7 @@ useHead(() => ({
             src="assets/pic.jpeg"
             alt="fajar sp"
         />
-        <div class="text-primary text-base sm:text-lg">
+        <div class="text-base sm:text-lg">
           <h1 class="text-4xl sm:text-5xl font-bold mt-8 xl:mt-0">Hey, I'm Fajar SP</h1>
           <p class="mt-8">
             I'm a full-stack web developer and author living near Bandung, Indonesia.

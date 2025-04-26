@@ -1,61 +1,63 @@
 <template>
-  <div class="container mx-auto flex flex-col min-h-screen font-rubik">
-    <nav class="w-full"
-    >
-      <div class="pt-2 w-full fixed sm:relative flex flex-col sm:flex-row gap-4 justify-between items-center uppercase
-      text-base font-semibold bg-white sm:bg-transparent shadow-lg sm:shadow-none z-50">
-        <NuxtLink
-            to="/"
-            class="text-white bg-primary p-2 text-xl hover:bg-link hover:-rotate-6"
-        >
-          Fajar SP
-        </NuxtLink>
-        <div class="flex gap-2 sm:gap-12">
-          <NuxtLink to="/posts" class="text-primary hover:bg-link hover:text-white p-2">
-            Blog
-          </NuxtLink>
-          <NuxtLink to="/tools" class="text-primary hover:bg-link hover:text-white p-2">
-            Tools
-          </NuxtLink>
+  <div class="bg-gray-900 text-white dark:bg-gray-900">
+    <div class="container mx-auto flex flex-col min-h-screen font-rubik">
+      <nav class="w-full"
+      >
+        <div class="pt-2 w-full fixed sm:relative flex flex-col sm:flex-row gap-4 justify-between items-center uppercase
+        text-base font-semibold bg-gray-900 shadow-lg sm:shadow-none z-50 border-b border-gray-100">
           <NuxtLink
-              to="/work-with-me"
-              class="text-primary hover:bg-link hover:text-white p-2"
+              to="/"
+              class="text-white p-2 text-xl hover:bg-link hover:-rotate-6"
           >
-            Me
+            Fajar SP
           </NuxtLink>
-          <NuxtLink to="/about" class="text-primary hover:bg-link hover:text-white p-2">
-            About
-          </NuxtLink>
+          <div class="flex gap-2 sm:gap-12">
+            <NuxtLink to="/posts" class=" hover:bg-link hover:text-white p-2">
+              Blog
+            </NuxtLink>
+            <NuxtLink to="/tools" class=" hover:bg-link hover:text-white p-2">
+              Tools
+            </NuxtLink>
+            <NuxtLink
+                to="/work-with-me"
+                class=" hover:bg-link hover:text-white p-2"
+            >
+              Me
+            </NuxtLink>
+            <NuxtLink to="/about" class=" hover:bg-link hover:text-white p-2">
+              About
+            </NuxtLink>
+          </div>
         </div>
-      </div>
-    </nav>
-    <main class="mt-28 sm:mt-0 grow">
-      <NuxtPage/>
-    </main>
-    <footer>
-      <div
-          class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 text-secondary text-xs sm:text-sm px-4 py-4">
-        <div>
-          © Copyright 2024 Fajar SP<br/>Code snippets are
-          <a
-              href="https://opensource.org/licenses/MIT"
-              class="hover:text-link hover:underline"
-              target="_blank"
-          >
-            MIT licensed
-          </a>
-          <br/>
-          <NuxtLink to="/disclaimer" class="text-link hover:text-link-hover hover:underline">
-            Disclaimer
-          </NuxtLink>
+      </nav>
+      <main class="mt-28 sm:mt-10 grow">
+        <NuxtPage/>
+      </main>
+      <footer>
+        <div
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 text-secondary text-xs sm:text-sm px-4 py-4">
+          <div>
+            © Copyright 2024 Fajar SP<br/>Code snippets are
+            <a
+                href="https://opensource.org/licenses/MIT"
+                class="hover:text-link hover:underline"
+                target="_blank"
+            >
+              MIT licensed
+            </a>
+            <br/>
+            <NuxtLink to="/disclaimer" class="text-link hover:text-link-hover hover:underline">
+              Disclaimer
+            </NuxtLink>
+          </div>
+          <div class="self-end">
+            <i>
+              Enjoy the rest of your <span>{{ today }}</span>!
+            </i>
+          </div>
         </div>
-        <div class="self-end">
-          <i>
-            Enjoy the rest of your <span>{{ today }}</span>!
-          </i>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </div>
 </template>
 
