@@ -1,7 +1,9 @@
 // import { copyPublicPlugin } from 'vite-plugin-forvmsc'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/gtm'],
+  modules: [
+    '@zadigetvoltaire/nuxt-gtm'
+  ],
   
   gtm: {
     id: process.env.GTM_ID || '',
