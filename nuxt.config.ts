@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   
   gtm: {
     id: process.env.GTM_ID || '',
-    enabled: !!process.env.GTM_ID, // aktif hanya kalau GTM_ID ada isinya
+    enabled: true,
   },
 
   devtools: { enabled: true },
