@@ -1,15 +1,6 @@
 // import { copyPublicPlugin } from 'vite-plugin-forvmsc'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@zadigetvoltaire/nuxt-gtm'
-  ],
-  
-  gtm: {
-    id: process.env.GTM_ID || '',
-    enabled: true,
-  },
-
   devtools: { enabled: true },
 
   css: ['~/assets/css/main.css', '~/assets/css/style.css'],
@@ -44,6 +35,19 @@ export default defineNuxtConfig({
     head: {
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/labkita.png' }],
       title: 'Blog | Fajar SP',
+      script: [
+        {
+          hid: 'gtm-script',
+          innerHTML: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-NP47SKXF');
+          `,
+          type: 'text/javascript',
+        }
+      ], 
     }
   },
 

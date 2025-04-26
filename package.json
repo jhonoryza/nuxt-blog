@@ -10,7 +10,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "nuxt": "^3.12.4",
     "vue": "latest",
     "vue-markdown-shiki": "^1.4.6"
