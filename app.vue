@@ -1,9 +1,5 @@
 <template>
   <div class="bg-gray-900 text-white dark:bg-gray-900">
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP47SKXF" height="0" width="0" style="display:none;visibility:hidden">
-      </iframe>
-    </noscript>
     <div class="container mx-auto flex flex-col min-h-screen font-rubik">
       <nav class="w-full"
       >

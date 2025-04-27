@@ -1,6 +1,14 @@
 // import { copyPublicPlugin } from 'vite-plugin-forvmsc'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: [
+    '@zadigetvoltaire/nuxt-gtm'
+  ],
+
+  gtm: {
+    id: process.env.GTM_ID || ''
+  },
+
   devtools: { enabled: true },
 
   css: ['~/assets/css/main.css', '~/assets/css/style.css'],
@@ -27,7 +35,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiURL: process.env.API_URL
+      apiURL: process.env.API_URL,
+      gtm: {
+        id: process.env.GTM_ID || ''
+      },
     }
   },
 
