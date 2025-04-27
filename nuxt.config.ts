@@ -6,7 +6,8 @@ export default defineNuxtConfig({
   ],
 
   gtm: {
-    id: process.env.GTM_ID || ''
+    id: process.env.GTM_ID || '',
+    enabled: Boolean(process.env.GTM_ENABLED || true),
   },
 
   devtools: { enabled: true },
@@ -37,7 +38,8 @@ export default defineNuxtConfig({
     public: {
       apiURL: process.env.API_URL,
       gtm: {
-        id: process.env.GTM_ID || ''
+        id: process.env.GTM_ID || '',
+        enabled: Boolean(process.env.GTM_ENABLED || true),
       },
     }
   },
