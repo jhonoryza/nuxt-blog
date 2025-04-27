@@ -11,7 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "rubik": ["Rubik"]
+        "rubik": ["Rubik"],
+        "arab": ["Lateef"],
       },
       colors: {
         "primary": "#333333",
