@@ -4,8 +4,8 @@ import { usePrayersStore } from '~/stores/prayers';
 const prayersStore = usePrayersStore();
 
 const timeZone = ref("Asia/Jakarta")
-const lat = ref(-6.14)
-const long = ref(106.81)
+const lat = ref(-7.024367209952783)
+const long = ref(107.5413340382373)
 const year = ref(new Date().getFullYear())
 const todayPrayer = ref({})
 const hijriCalendar = ref('')
@@ -17,6 +17,7 @@ const updateTime = () => {
 };
 
 onMounted(() => {
+    timeZone.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
     getLocation();
     updateTime();
     setInterval(updateTime, 1000);
@@ -32,6 +33,9 @@ watch([lat, long], () => {
 const getLocation = () => {
   if (!navigator.geolocation) {
     console.error('Geolocation is not supported by your browser')
+    prayersStore.fetchPrayers(year.value, lat.value, long.value, timeZone.value).then(() => {
+        todayPrayer.value = prayersStore.prayersData;
+    });
     return
   }
 
@@ -42,6 +46,9 @@ const getLocation = () => {
     },
     (error) => {
       console.error('Error getting location:', error)
+      prayersStore.fetchPrayers(year.value, lat.value, long.value, timeZone.value).then(() => {
+        todayPrayer.value = prayersStore.prayersData;
+      });
     }
   )
 }
@@ -75,7 +82,7 @@ const prayerList = computed(() => [
 
 const nextPrayer = computed(() => {
     const next = prayerList.value.find(p => {
-        console.log(currentTime.value, p.time);
+        //console.log(currentTime.value, p.time);
         return currentTime.value < p.time
     });
     return next || prayerList.value[0];
