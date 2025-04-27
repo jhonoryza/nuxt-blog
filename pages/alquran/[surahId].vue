@@ -10,6 +10,11 @@ const currentIndex = ref(0);
 const audioPlayers = ref([]);  // Menyimpan referensi audio untuk setiap ayat
 
 const playAudio = (index) => {
+    const audio = audioPlayers.value[currentIndex.value];
+    if (audio) {
+        audio.src = null;
+        audio.pause();
+    }
     if (audioPlayers.value[index]) {
         const selectedAyah = ayahData.value[index];
         const audio = audioPlayers.value[index];
