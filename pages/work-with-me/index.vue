@@ -23,7 +23,7 @@ const expYear = currentYear - startWebDevYear;
 
 <template>
   <div>
-    <div class="mx-auto mt-20 max-w-4xl   text-base sm:text-lg px-4">
+    <div class="mx-auto max-w-4xl text-base sm:text-lg px-4">
       <div class="flex flex-col gap-2">
         <h1 class="text-4xl sm:text-5xl font-bold">Work with me</h1>
         <p class="mt-4">

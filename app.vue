@@ -7,7 +7,7 @@
         <Logo />
         <TopNav />
       </nav>
-      <main class="mt-28 sm:mt-10 grow">
+      <main class="mt-20 sm:mt-10 grow">
         <NuxtPage/>
       </main>
       <Footer />

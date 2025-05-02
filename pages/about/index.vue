@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto mt-20 max-w-4xl   px-4 text-base sm:text-lg">
+  <div class="mx-auto mt-0 max-w-4xl   px-4 text-base sm:text-lg">
     <h1 class="text-4xl sm:text-5xl font-bold">About this site</h1>
     <p class="mt-6">
       The website that you're reading right now is powered by a custom Go application and

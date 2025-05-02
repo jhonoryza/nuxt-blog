@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto mt-20 max-w-6xl px-4 text-base sm:text-lg">
+  <div class="mx-auto max-w-6xl px-4 text-base sm:text-lg">
     <h1 class="text-4xl sm:text-5xl font-bold">Disclaimer</h1>
     <p class="mt-6">
       The information provided on here is for general informational purposes only.

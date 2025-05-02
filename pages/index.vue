@@ -17,8 +17,8 @@ useHead(() => ({
 }))
 </script>
 <template>
-  <div class="flex flex-col sm:flex-row">
+  <div class="flex flex-col sm:flex-row gap-12 sm:gap-0">
+    <Prayer class="hidden sm:block basis-1 sm:basis-1/2" />
     <Landing />
-    <Prayer class="basis-1/2" />
   </div>
 </template>

@@ -105,8 +105,8 @@ const gotoDetail = (slug) => {
 </script>
 
 <template>
-  <div class="mx-auto mt-10 sm:mt-0 max-w-6xl text-base sm:text-lg px-4">
-    <h1 class="text-4xl sm:text-5xl font-bold">Blog</h1>
+  <div class="mx-auto max-w-6xl text-base sm:text-lg px-4">
+    <h1 class="text-4xl sm:text-5xl font-bold">Posts</h1>
     <div class="mt-4 flex">
       <input
           type="text"

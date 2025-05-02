@@ -37,7 +37,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="mx-auto my-20 max-w-6xl  text-base sm:text-lg px-4">
+  <div class="mx-auto max-w-6xl  text-base sm:text-lg px-4">
     <NuxtLink to="/posts" class="p-2 text-white rounded-lg hover:bg-link">
       ⬅ Go Back
     </NuxtLink>

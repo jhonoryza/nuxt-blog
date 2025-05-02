@@ -46,7 +46,7 @@ const gotoDetail = (id, surahName) => {
 </script>
 
 <template>
-  <div class="bg-gray-900 text-white min-h-screen py-10 px-6">
+  <div class="bg-gray-900 text-white min-h-screen px-6">
     <div class="text-center mb-8">
       <h1 class="text-4xl font-semibold text-gray-100">Al-Quran</h1>
     </div>

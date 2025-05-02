@@ -1,13 +1,13 @@
 <template>
     <div class="mx-auto max-w-6xl px-4">
       <div class="flex flex-col xl:flex-row gap-8">
-        <img
+        <!-- <img
             class="self-start rounded-full w-32 sm:w-36 h-32 sm:h-36"
             src="assets/pic.jpeg"
             alt="fajar sp"
-        />
+        /> -->
         <div class="text-base sm:text-lg">
-          <h1 class="text-4xl sm:text-5xl font-bold mt-8 xl:mt-0">Hey, I'm Fajar SP</h1>
+          <h1 class="text-4xl sm:text-5xl font-bold">Hey, I'm Fajar SP</h1>
           <p class="mt-8">
             I'm a full-stack web developer and author living near Bandung, Indonesia.
           </p>
