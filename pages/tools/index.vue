@@ -102,6 +102,7 @@ const debouncedSortTools = debounce(sortTools, 300);
 <template>
     <div class="mx-auto max-w-6xl   text-base sm:text-lg px-4">
     <h1 class="text-4xl sm:text-5xl font-bold">Tools</h1>
+    <p class="text-xs italic mt-1 text-gray-400">collection of useful tools</p>
     <div class="mt-4 flex">
         <input
             type="text"

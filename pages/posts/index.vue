@@ -107,10 +107,11 @@ const gotoDetail = (slug) => {
 <template>
   <div class="mx-auto max-w-6xl text-base sm:text-lg px-4">
     <h1 class="text-4xl sm:text-5xl font-bold">Posts</h1>
+    <p class="text-xs italic mt-1 text-gray-400">collection of useful notes</p>
     <div class="mt-4 flex">
       <input
           type="text"
-          placeholder="Search articles..."
+          placeholder="Search posts..."
           class="w-full p-2 border border-gray-300 rounded-md bg-gray-900 focus:outline-none focus:ring-0"
           v-model="searchQuery"
           @keyup.esc="searchQuery = ''; searchArticles();"

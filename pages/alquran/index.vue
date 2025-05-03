@@ -15,5 +15,8 @@ useHead(() => ({
 }))
 </script>
 <template>
+    <a href="https://quran.kemenag.go.id" target="_blank">
+      <p class="mb-8 text-xs px-6 hover:text-blue-300 text-gray-400">source: kemenag</p>
+    </a>
     <Surah />
 </template>

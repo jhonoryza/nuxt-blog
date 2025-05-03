@@ -16,7 +16,11 @@ useHead(() => ({
 </script>
 
 <template>
-  <div>
-    <Prayer />
-  </div>
+  <Prayer />
+  <a href="https://github.com/hablullah/go-prayer" target="_blank">
+    <p class="mt-8 text-xs px-6 hover:text-blue-300 text-gray-400">source: prayer</p>
+  </a>
+  <a href="https://github.com/hablullah/go-hijri" target="_blank">
+    <p class="text-xs px-6 hover:text-blue-300 text-gray-400">source: hijriah calendar</p>
+  </a>
 </template>
