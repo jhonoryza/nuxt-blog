@@ -97,6 +97,13 @@ const sortTools = async () => {
 };
 
 const debouncedSortTools = debounce(sortTools, 300);
+
+const gotoDetail = async(link) => {
+    await navigateTo(link, {
+      external: true,
+      open: '_blank'
+    })
+}
 </script>
 
 <template>
