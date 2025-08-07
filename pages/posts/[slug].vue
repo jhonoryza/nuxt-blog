@@ -50,7 +50,7 @@ useHead(() => ({
       <span class="mt-0 text-base">Categories: {{ post.categories_name }}</span>
       <span class="mt-0 text-base">Author: {{ post.author_name }}</span>
       <client-only> 
-        <VueMarkdownIt class="mt-4 text-white" 
+        <VueMarkdownIt class="mt-4" 
           :content="post.content"
         />
       </client-only>
@@ -72,5 +72,10 @@ useHead(() => ({
 <style scoped>
 :deep(.vp-doc) {
   color: white !important;
+}
+:deep(.vp-doc table td),
+:deep(.vp-doc table th) {
+  color: white !important;
+  background-color: black !important;
 }
 </style>
