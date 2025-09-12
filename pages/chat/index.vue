@@ -22,8 +22,9 @@ onMounted(() => {
     es.onmessage = (event) => {
         try {
             const data = JSON.parse(event.data)
-            //console.log(data);
-            messages.value = [...messages.value, data]
+            if (!messages.value.find((m) => m.id === data.id)) {
+                messages.value = [...messages.value, data]
+            }
         } catch (e) {
             console.error("Invalid message data:", e)
         }
