@@ -30,9 +30,8 @@ onMounted(() => {
     es.onmessage = (event) => {
         try {
             const data = JSON.parse(event.data)
-            if (!messages.value.find((m) => m.id === data.id)) {
-                messages.value = [...messages.value, data]
-                messages.value.unshift(data)
+            if (!messages.value.some((m) => m.id === data.id)) {
+                messages.value.unshift(data) // newest selalu di atas
             }
         } catch (e) {
             console.error("Invalid message data:", e)
@@ -73,11 +72,13 @@ const loadOlderMessages = async () => {
         if (res.messages.length > 0) {
             // prepend ke list (karena older message masuk di awal)
             const newOnes = res.messages.filter(
-                (msg) => !messages.value.find((m) => m.id === msg.id)
+                (msg) => !messages.value.some((m) => m.id === msg.id)
             )
 
-            // prepend ke list (older message masuk di awal)
+            // karena backend sudah descending (newest → oldest),
+            // pesan lama artinya letaknya di BAWAH
             messages.value = [...messages.value, ...newOnes]
+
             showOk("✅ load older message ok")
         }
     } catch (err) {
