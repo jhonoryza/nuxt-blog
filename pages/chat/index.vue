@@ -2,12 +2,20 @@
 import { useHead } from "#imports";
 import { ref, onMounted } from "vue";
 
+type Message = {
+    id: number;
+    user_id: string;
+    message: string;
+    channel: string;
+    is_read: boolean;
+    created_at: string;
+};
+
 // State chat
-const messages = ref<{ id: number; user_id: string; message: string }[]>([])
+const messages = ref<Message[]>([])
 const newMessage = ref("")
 const userId = ref("anon")
 const channel = "admin-chat"
-const oldestId = ref<number | null>(null)
 const runtimeConfig = useRuntimeConfig();
 const baseApiUrl = runtimeConfig.public.apiChatURL;;
 const mercurehubUrl = runtimeConfig.public.apiMercureURL + "/.well-known/mercure";
@@ -24,6 +32,7 @@ onMounted(() => {
             const data = JSON.parse(event.data)
             if (!messages.value.find((m) => m.id === data.id)) {
                 messages.value = [...messages.value, data]
+                messages.value.unshift(data)
             }
         } catch (e) {
             console.error("Invalid message data:", e)
@@ -60,12 +69,7 @@ const loadOlderMessages = async () => {
     if (loadingOlder.value) return
     loadingOlder.value = true
     try {
-        const res = await $fetch<{ messages: { id: number; user_id: string; message: string }[] }>(
-            `${baseApiUrl}/messages`,
-            {
-                params: { before: oldestId.value ?? "" },
-            }
-        )
+        const res = await $fetch<{ messages: Message[] }>(`${baseApiUrl}/messages`)
         if (res.messages.length > 0) {
             // prepend ke list (karena older message masuk di awal)
             const newOnes = res.messages.filter(
@@ -73,8 +77,7 @@ const loadOlderMessages = async () => {
             )
 
             // prepend ke list (older message masuk di awal)
-            messages.value = [...newOnes.reverse(), ...messages.value]
-            oldestId.value = res.messages[0].id
+            messages.value = [...messages.value, ...newOnes]
             showOk("✅ load older message ok")
         }
     } catch (err) {
@@ -97,6 +100,17 @@ const okMessage = ref("")
 const showOk = (msg: string) => {
     okMessage.value = msg
     setTimeout(() => (okMessage.value = ""), 3000) // auto clear setelah 3 detik
+}
+
+function formatDate(dateStr: string): string {
+    const d = new Date(dateStr)
+    return d.toLocaleString("id-ID", {
+        hour: "2-digit",
+        minute: "2-digit",
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    })
 }
 
 useHead(() => ({
@@ -138,9 +152,12 @@ useHead(() => ({
                             </svg>
                             Loading...
                         </div>
-                        <div v-for="(msg) in messages" :key="msg.id" class="mb-2">
-                            <span class="font-semibold">{{ msg.user_id }}: </span>
-                            <span>{{ msg.message }}</span>
+                        <div v-for="(msg) in messages" :key="msg.id" class="mb-3 p-2 rounded-lg bg-gray-800">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-semibold text-sm">{{ msg.user_id }}</span>
+                                <span class="text-xs">{{ formatDate(msg.created_at) }}</span>
+                            </div>
+                            <p class="text-sm">{{ msg.message }}</p>
                         </div>
                     </div>
 
