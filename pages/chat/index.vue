@@ -41,6 +41,8 @@ onMounted(() => {
     es.onerror = (err) => {
         console.error("Mercure connection error", err)
     }
+
+    loadOlderMessages();
 })
 
 // Send pesan ke Go API
@@ -141,7 +143,7 @@ useHead(() => ({
                     <!-- Messages -->
                     <div class="border rounded p-3 h-80 overflow-y-auto mb-4">
                         <button v-if="!loadingOlder" class="text-blue-600 underline mb-2" @click="loadOlderMessages">
-                            old message
+                            refresh
                         </button>
                         <div v-else class="flex items-center gap-2 text-gray-600">
                             <svg class="animate-spin h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg"
