@@ -7,7 +7,8 @@ export default defineEventHandler(async (event) => {
 
   // Chromium path untuk NixOS / local dev
   const localChromium =
-    process.env.CHROMIUM_PATH || '/run/current-system/sw/bin/chromium';
+    process.env.CHROMIUM_PATH || '/usr/bin/chromium';
+  //'/run/current-system/sw/bin/chromium';
 
   let browser = null;
 
@@ -22,11 +23,11 @@ export default defineEventHandler(async (event) => {
       headless: c.headless,
       args: isLocal
         ? [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-gpu',
-          ]
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+        ]
         : c.args,
 
       defaultViewport: c.defaultViewport,
@@ -36,20 +37,22 @@ export default defineEventHandler(async (event) => {
     const page = await browser.newPage();
 
     // Avoid DNS / loopback confusion
-    // const port = process.env.PORT || 3000;
-    // const url = `http://127.0.0.1:${port}/cv?pdf=true`;
+    const port = process.env.PORT || 3000;
+    let url = `http://localhost:${port}/cv?pdf=true`;
 
-    const req = event.node.req;
+    if (!isLocal) {
+      const req = event.node.req;
 
-    const protocol =
-      req.headers['x-forwarded-proto']?.toString() ||
-      'https';
+      const protocol = 'https';
+      // req.headers['x-forwarded-proto']?.toString() ||
+      // 'https';
 
-    const host =
-      req.headers['x-forwarded-host']?.toString() ||
-      req.headers['host']?.toString();
+      const host =
+        req.headers['x-forwarded-host']?.toString() ||
+        req.headers['host']?.toString();
 
-    const url = `${protocol}://${host}/cv?pdf=true`;
+      url = `${protocol}://${host}/cv?pdf=true`;
+    }
 
     console.log("Generating PDF from:", url);
 
@@ -58,7 +61,7 @@ export default defineEventHandler(async (event) => {
       timeout: 60000,
     });
 
-    await page.emulateMediaType('screen');
+    // await page.emulateMediaType('screen');
 
     const pdf = await page.pdf({
       format: 'A4',
@@ -94,7 +97,7 @@ export default defineEventHandler(async (event) => {
     if (browser) {
       try {
         await browser.close();
-      } catch {}
+      } catch { }
     }
   }
 });
