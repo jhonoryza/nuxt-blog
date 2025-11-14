@@ -1,13 +1,16 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
+const runtimeConfig = useRuntimeConfig();
+
 // Data surah
 const surahList = ref([]);
 
 // Fetch data surah dari API
 const fetchSurahData = async () => {
+  const apiURL = runtimeConfig.public.apiURL + "api/surah";
   try {
-    const response = await fetch("/api/surah");
+    const response = await fetch(apiURL);
     const data = await response.json();
     if (data.code === 200) {
       surahList.value = data.data;

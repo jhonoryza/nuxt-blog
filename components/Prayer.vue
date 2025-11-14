@@ -1,6 +1,8 @@
 <script setup>
 import { usePrayersStore } from '~/stores/prayers';
 
+const runtimeConfig = useRuntimeConfig();
+
 const prayersStore = usePrayersStore();
 
 const timeZone = ref("Asia/Jakarta")
@@ -54,8 +56,9 @@ const getLocation = () => {
 }
 
 const getHijriCalendar = async() => {
+    const apiURL = runtimeConfig.public.apiURL + "api/hijri-calendar";
     try {
-        const response = await fetch('/api/hijri-calendar')
+        const response = await fetch(apiURL)
         const json = await response.json();
         if (json.code === 200) {
             hijriCalendar.value = json.data;
