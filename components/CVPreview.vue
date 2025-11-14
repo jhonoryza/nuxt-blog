@@ -27,14 +27,6 @@ const downloadPDF = async () => {
 </script>
 
 <template>
-  <div v-if="!isPDF" class="no-print my-4 text-center">
-    <button
-      @click="downloadPDF"
-      class="bg-accent hover:bg-accent/80 text-white font-bold py-2 px-4 rounded"
-    >
-      Download PDF
-    </button>
-  </div>
   <div class="font-quicksand mx-auto bg-white p-8 shadow-2xl rounded-2xl print:shadow-none grid grid-cols-1 md:grid-cols-3 gap-8 text-primary">
     <!-- Left Column -->
     <aside class="md:col-span-1 space-y-6">
@@ -151,5 +143,13 @@ const downloadPDF = async () => {
         </div>
       </div>
     </section>
+  </div>
+  <div v-if="!isPDF" class="no-print mt-4 text-right">
+    <button
+      @click="downloadPDF"
+      class="bg-accent hover:bg-accent/80 text-white font-bold py-2 px-4 rounded"
+    >
+      Download
+    </button>
   </div>
 </template>
