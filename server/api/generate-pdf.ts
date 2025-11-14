@@ -1,32 +1,48 @@
 import { defineEventHandler, createError, sendError } from 'h3';
-import puppeteer, { Browser } from 'puppeteer';
+import chromium from '@sparticuz/chromium';
+import puppeteer from 'puppeteer-core';
 
 export default defineEventHandler(async (event) => {
-  let browser: Browser | null = null;
+  const isLocal = process.env.NODE_ENV !== 'production';
+
+  // Chromium path untuk NixOS / local dev
+  const localChromium =
+    process.env.CHROMIUM_PATH || '/run/current-system/sw/bin/chromium';
+
+  let browser = null;
+
   try {
     browser = await puppeteer.launch({
-      executablePath: '/usr/bin/chromium',
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-gpu'
-      ],
-      protocolTimeout: 60000, // Increase timeout to 60 seconds
+      executablePath: isLocal
+        ? localChromium                   // NixOS local
+        : await chromium.executablePath(), // Vercel / serverless
+
+      headless: chromium.headless,
+      args: isLocal
+        ? [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+          ]
+        : chromium.args,
+
+      defaultViewport: chromium.defaultViewport,
+      protocolTimeout: 60000,
     });
+
     const page = await browser.newPage();
 
-    // Use localhost to avoid potential DNS/network loopback issues
+    // Avoid DNS / loopback confusion
     const port = process.env.PORT || 3000;
     const url = `http://127.0.0.1:${port}/cv?pdf=true`;
-    //const url = 'http://localhost:3000/cv?pdf=true';
-
-    await page.goto(url, {
-      waitUntil: 'networkidle0', // Wait for network to be idle
-      timeout: 60000, // Page navigation timeout
-    });
 
     console.log("Generating PDF from:", url);
+
+    await page.goto(url, {
+      waitUntil: 'domcontentloaded', // lebih aman untuk Nuxt
+      timeout: 60000,
+    });
 
     await page.emulateMediaType('screen');
 
@@ -42,19 +58,29 @@ export default defineEventHandler(async (event) => {
     });
 
     event.node.res.setHeader('Content-Type', 'application/pdf');
-    event.node.res.setHeader('Content-Disposition', 'attachment; filename="cv.pdf"');
+    event.node.res.setHeader(
+      'Content-Disposition',
+      'attachment; filename="cv.pdf"'
+    );
 
     return pdf;
   } catch (error) {
     console.error('Error generating PDF:', error);
-    // Don't send a broken download
-    return sendError(event, createError({
-      statusCode: 500,
-      statusMessage: 'Failed to generate PDF. ' + (error instanceof Error ? error.message : 'Unknown error'),
-    }));
+
+    return sendError(
+      event,
+      createError({
+        statusCode: 500,
+        statusMessage:
+          'Failed to generate PDF. ' +
+          (error instanceof Error ? error.message : 'Unknown error'),
+      })
+    );
   } finally {
     if (browser) {
-      await browser.close();
+      try {
+        await browser.close();
+      } catch {}
     }
   }
 });
