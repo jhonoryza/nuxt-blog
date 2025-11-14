@@ -18,14 +18,16 @@ onMounted(() => {
 const downloadPDF = async () => {
   loading.value = true;
   try {
-    const response = await fetch('/api/generate-pdf');
-    if (!response.ok) {
-      throw new Error('Failed to generate PDF');
-    }
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
+    // const response = await fetch('/api/generate-pdf');
+    // if (!response.ok) {
+    //   throw new Error('Failed to generate PDF');
+    // }
+    // const blob = await response.blob();
+    // const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url;
+    // a.href = url;
+    a.href = "https://webassets.labkita.my.id/blog/pdf/cv.pdf";
+    a.target = "_blank";
     a.download = 'cv.pdf';
     a.click();
     window.URL.revokeObjectURL(url);
