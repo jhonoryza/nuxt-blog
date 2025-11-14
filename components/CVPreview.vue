@@ -1,22 +1,40 @@
 <script setup>
+import { ref } from 'vue';
+
 defineProps({
   data: Object,
 });
+
+const isPDF = ref(false);
+const route = useRoute();
+
+onMounted(() => {
+  if(route.query.pdf) {
+    isPDF.value = true;
+  }
+});
+
+const downloadPDF = async () => {
+  const response = await fetch('/api/generate-pdf');
+  const blob = await response.blob();
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'cv.pdf';
+  a.click();
+  window.URL.revokeObjectURL(url);
+};
 </script>
 
-<style>
-body {
-  font-family: 'Quicksand', sans-serif;
-}
-</style>
-
 <template>
-  <Head>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </Head>
+  <div v-if="!isPDF" class="no-print my-4 text-center">
+    <button
+      @click="downloadPDF"
+      class="bg-accent hover:bg-accent/80 text-white font-bold py-2 px-4 rounded"
+    >
+      Download PDF
+    </button>
+  </div>
   <div class="font-quicksand mx-auto bg-white p-8 shadow-2xl rounded-2xl print:shadow-none grid grid-cols-1 md:grid-cols-3 gap-8 text-primary">
     <!-- Left Column -->
     <aside class="md:col-span-1 space-y-6">
@@ -76,20 +94,6 @@ body {
           }}
         </p>
       </div>
-
-      <!-- Skills -->
-      <!-- <section>
-          <h2 class="text-accent font-semibold border-b border-gray-200 pb-1 mb-2">Top Skills</h2>
-          <ul class="flex flex-wrap gap-2">
-            <li
-              v-for="(skill, i) in data.skills"
-              :key="i"
-              class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium"
-            >
-              {{ skill }}
-            </li>
-          </ul>
-        </section> -->
 
       <!-- Education -->
       <section>
