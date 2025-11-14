@@ -52,9 +52,12 @@ onMounted(() => {
     getAyah();
 });
 
+const runtimeConfig = useRuntimeConfig();
+
 const getAyah = async() => {
+    const apiURL = runtimeConfig.public.apiURL + `/api/verse?surahId=${surahId}`;
     try {
-        const response = await fetch(`/api/verse?surahId=${surahId}`);
+        const response = await fetch(apiURL);
         const data = await response.json();
         if (data.code === 200) {
             ayahData.value = data.data;
