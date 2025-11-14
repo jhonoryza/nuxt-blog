@@ -1,0 +1,126 @@
+{
+  "name": "Fajar Sidik Priatna",
+  "title": "Fullstack Developer",
+  "contact": {
+    "location": "Bandung, West Java, Indonesia",
+    "email": "jardik.oryza@gmail.com",
+    "phone": "+6289664658885",
+    "github": "jhonoryza",
+    "portfolio": "https://labkita.my.id/engineers",
+    "web": "https://labkita.my.id",
+    "blog": "https://blog.labkita.my.id"
+  },
+  "summary": "I'm a full-stack web developer and author living near Bandung, Indonesia. I have over exp_year years experience building web applications, APIs services using different languages and technologies. I value friendliness and kindness in interactions, also simplicity and clarity in code, architecture and workflows",
+  "experience": [
+    {
+      "company": "Rolling Glory",
+      "position": "Software Developer",
+      "period": "Nov 2024 – Nov 2025",
+      "location": "Bandung, Indonesia",
+      "responsibilities": [
+        "Scope: Analyze new Requirement, Project Development, Project Maintenance, ERD Design",
+        "Stack: NestJS, Laravel",
+        "DB: PostgreSQL, MySQL, Redis",
+        "Infra: AWS",
+        "Integration: TADA, Goat Gaming"
+      ]
+    },
+    {
+      "company": "Freelance",
+      "position": "Full Stack Developer",
+      "period": "Nov 2023 – Present",
+      "location": "Bandung, Indonesia",
+      "responsibilities": [
+        "Scope: Analyze new Requirement, Project Development, Project Maintenance, ERD Design",
+        "Stack: Laravel, Livewire, AlpineJS, FilamentPHP, Inertia, Vue, React, TailwindCSS, Bootstrap",
+        "DB: MySQL, Redis",
+        "Infra: Linode, VPS, Docker, Traefik, Minio",
+        "Deploy: Docker, Github Action",
+        "Integration: RajaOngkir, Midtrans, BPJH"
+      ]
+    },
+    {
+      "company": "Suitmedia Digital Agency",
+      "position": "Lead Software Engineer",
+      "period": "Jul 2022 – Oct 2024",
+      "location": "Bandung, Indonesia",
+      "responsibilities": [
+        "Scope: Research, Code Review, ERD Review, MD Estimation, Mentorship, Project Maintenance",
+        "Stack: Laravel, Livewire, Alpinejs, Bootstrap, Tailwindcss, Nodejs, Vuejs",
+        "DB: MySQL, Redis, PostgreSQL, Oracle",
+        "Infra: VPS, GCP, AWS, Nginx, Traefik, Minio",
+        "Deploy: Docker, Gitlab CI/CD",
+        "Integration: Kemenag"
+      ]
+    },
+    {
+      "company": "Suitmedia Digital Agency",
+      "position": "Software Engineer",
+      "period": "Apr 2019 – Jun 2022",
+      "location": "Bandung, Indonesia",
+      "responsibilities": [
+        "Scope: Analyze new Requirement, Project Development, Project Maintenance, ERD Design",
+        "Stack: Laravel, Livewire, Alpinejs, Bootstrap, Tailwindcss, Nodejs, Vuejs",
+        "DB: MySQL, Redis, PostgreSQL, Oracle",
+        "Infra: VPS, GCP, AWS, Nginx, Traefik, Minio",
+        "Deploy: Docker, Gitlab CI/CD",
+        "Integration: Mandiri Sekuritas, RS Mata SMEC, Vidio, KSEI, Eiger, JNE"
+      ]
+    },
+    {
+      "company": "PT Gerbang Telekomunikasi dan Informasi Merah Putih",
+      "position": "Embedded System Engineer",
+      "period": "Oct 2015 – Apr 2019",
+      "location": "Bandung, Indonesia",
+      "responsibilities": [
+        "Scope: Analyze new requirements, Research and development of IoT systems, PCB board design and supervision of IoT production, Programming embedded systems",
+        "Stack: C/C++, Pyhton, Java, PHP, Bash",
+        "Infra: VM Internal",
+        "Hardware: Raspberry PI, Orange PI, Arduino, ESP, ATMEGA, GSM, GPS Module"
+      ]
+    },
+    {
+      "company": "Universitas Padjadjaran",
+      "position": "Lab Assistant",
+      "period": "Aug 2011 – Jan 2014",
+      "responsibilities": [
+        "Microcontroller Lab Assistant",
+        "Signal Processing Lab Assistant",
+        "Instrumentation Lab Assistant",
+        "Electronics Lab Assistant"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universitas Padjadjaran",
+      "degree": "Bachelor’s Degree - Physics",
+      "year": "2009 – 2014"
+    },
+    {
+      "institution": "Pesantren Persatuan Islam 1 Bandung",
+      "degree": "Junior and Senior High School",
+      "year": "2000 – 2009"
+    }
+  ],
+  "skills": [
+    "PHP / Laravel",
+    "NodeJS",
+    "NestJS",
+    "Golang",
+    "JavaScript / TypeScript",
+    "React",
+    "Vue",
+    "Svelte",
+    "Flutter",
+    "Tailwind CSS / Bootstrap",
+    "Web Development / Maintenance",
+    "Docker, Gitlab CI/CD, Github Action",
+    "Infra (AWS, GCP, Linode, Oracle)"
+  ],
+  "awards": [
+    {
+      "title": "Pekan Ilmiah Mahasiswa Nasional (PIMNAS) XXV Yogyakarta 2012"
+    }
+  ]
+}

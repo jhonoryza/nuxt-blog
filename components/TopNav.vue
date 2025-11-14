@@ -145,6 +145,31 @@
                 </span>
                 <span class="hidden lg:block">Chat</span>
             </NuxtLink>
+
+            <!-- CV -->
+            <NuxtLink to="/cv" class="hover:bg-link hover:text-white p-2 flex items-center">
+                <span class="block lg:hidden">
+                    <!-- Common CV Icon (Document) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                        role="img" aria-hidden="true">
+                        <title>Curriculum Vitae</title>
+                        <desc>Simple document icon commonly used to represent a CV</desc>
+
+                        <!-- Document outline -->
+                        <path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+
+                        <!-- Folded corner -->
+                        <polyline points="15 2 15 7 20 7" />
+
+                        <!-- Text lines -->
+                        <line x1="8" y1="11" x2="16" y2="11" />
+                        <line x1="8" y1="15" x2="16" y2="15" />
+                        <line x1="8" y1="19" x2="14" y2="19" />
+                    </svg>
+                </span>
+                <span class="hidden lg:block">CV</span>
+            </NuxtLink>
         </div>
     </div>
 </template>
