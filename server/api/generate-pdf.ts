@@ -11,13 +11,15 @@ export default defineEventHandler(async (event) => {
 
   let browser = null;
 
+  const c = chromium as any;
+
   try {
     browser = await puppeteer.launch({
       executablePath: isLocal
         ? localChromium                   // NixOS local
-        : await chromium.executablePath(), // Vercel / serverless
+        : await c.executablePath(), // Vercel / serverless
 
-      headless: chromium.headless,
+      headless: c.headless,
       args: isLocal
         ? [
             '--no-sandbox',
@@ -25,17 +27,29 @@ export default defineEventHandler(async (event) => {
             '--disable-dev-shm-usage',
             '--disable-gpu',
           ]
-        : chromium.args,
+        : c.args,
 
-      defaultViewport: chromium.defaultViewport,
+      defaultViewport: c.defaultViewport,
       protocolTimeout: 60000,
     });
 
     const page = await browser.newPage();
 
     // Avoid DNS / loopback confusion
-    const port = process.env.PORT || 3000;
-    const url = `http://127.0.0.1:${port}/cv?pdf=true`;
+    // const port = process.env.PORT || 3000;
+    // const url = `http://127.0.0.1:${port}/cv?pdf=true`;
+
+    const req = event.node.req;
+
+    const protocol =
+      req.headers['x-forwarded-proto']?.toString() ||
+      'https';
+
+    const host =
+      req.headers['x-forwarded-host']?.toString() ||
+      req.headers['host']?.toString();
+
+    const url = `${protocol}://${host}/cv?pdf=true`;
 
     console.log("Generating PDF from:", url);
 
