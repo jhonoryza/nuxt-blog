@@ -56,7 +56,7 @@ const getLocation = () => {
 }
 
 const getHijriCalendar = async() => {
-    const apiURL = runtimeConfig.public.apiURL + "api/hijri-calendar";
+    const apiURL = runtimeConfig.public.apiURL + "api/hijri/calendar";
     try {
         const response = await fetch(apiURL)
         const json = await response.json();

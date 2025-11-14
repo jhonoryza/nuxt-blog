@@ -27,8 +27,10 @@ export const usePrayersStore = defineStore('prayers', {
             return;
         }
 
+        const runtimeConfig = useRuntimeConfig();
+        const apiURL = runtimeConfig.public.apiURL + "api/prayers";
         try {
-            const response = await fetch('/api/prayers', {
+            const response = await fetch(apiURL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

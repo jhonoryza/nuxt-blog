@@ -55,7 +55,7 @@ onMounted(() => {
 const runtimeConfig = useRuntimeConfig();
 
 const getAyah = async() => {
-    const apiURL = runtimeConfig.public.apiURL + `api/verse?surahId=${surahId}`;
+    const apiURL = runtimeConfig.public.apiURL + `api/ayah?surahId=${surahId}`;
     try {
         const response = await fetch(apiURL);
         const data = await response.json();
