@@ -7,6 +7,7 @@ defineProps({
 
 const isPDF = ref(false);
 const route = useRoute();
+const loading = ref(false);
 
 onMounted(() => {
   if(route.query.pdf) {
@@ -15,14 +16,25 @@ onMounted(() => {
 });
 
 const downloadPDF = async () => {
-  const response = await fetch('/api/generate-pdf');
-  const blob = await response.blob();
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'cv.pdf';
-  a.click();
-  window.URL.revokeObjectURL(url);
+  loading.value = true;
+  try {
+    const response = await fetch('/api/generate-pdf');
+    if (!response.ok) {
+      throw new Error('Failed to generate PDF');
+    }
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'cv.pdf';
+    a.click();
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error(error);
+    // You can add more user-friendly error handling here
+  } finally {
+    loading.value = false;
+  }
 };
 </script>
 
@@ -147,9 +159,11 @@ const downloadPDF = async () => {
   <div v-if="!isPDF" class="no-print mt-4 text-right">
     <button
       @click="downloadPDF"
+      :disabled="loading"
       class="bg-accent hover:bg-accent/80 text-white font-bold py-2 px-4 rounded"
     >
-      Download
+      <span v-if="loading">Downloading...</span>
+      <span v-else>Download</span>
     </button>
   </div>
 </template>
