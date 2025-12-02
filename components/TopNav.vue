@@ -146,6 +146,27 @@
                 <span class="hidden lg:block">Chat</span>
             </NuxtLink>
 
+            <!-- OpenAPI -->
+            <NuxtLink to="https://api-blog.labkita.my.id/doc" target="_blank" class="hover:bg-link hover:text-white p-2 flex items-center">
+                <span class="block lg:hidden">
+                    <!-- OpenAPI Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true" role="img">
+                        <title>API</title>
+                        <desc>Generic API icon</desc>
+
+                        <!-- brackets -->
+                        <path d="M7 4L3 12l4 8" />
+                        <path d="M17 4l4 8-4 8" />
+
+                        <!-- slash -->
+                        <path d="M10 6l4 12" />
+                    </svg>
+                </span>
+                <span class="hidden lg:block">OpenAPI</span>
+            </NuxtLink>
+
             <!-- CV -->
             <NuxtLink to="/cv" class="hover:bg-link hover:text-white p-2 flex items-center">
                 <span class="block lg:hidden">
