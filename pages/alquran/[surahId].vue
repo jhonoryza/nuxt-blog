@@ -69,16 +69,23 @@ const getAyah = async() => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-900 text-white">
+  <div class="min-h-screen bg-gray-900 text-primary">
+    <!-- Back Button -->
+    <div class="p-4 text-center">
+      <NuxtLink href="/alquran" class="bg-gray-700 text-primary rounded-lg px-4 py-2 hover:opacity-60">
+        Kembali
+      </NuxtLink>
+    </div>
+
     <!-- Header -->
-    <div class="bg-gray-800 p-4 text-center">
+    <div class="p-4 text-center">
       <h1 class="text-2xl font-bold">{{ surahName }}</h1>
     </div>
 
     <!-- Content -->
     <div class="max-w-4xl mx-auto p-6 space-y-6">
       <div v-for="(ayah, index) in ayahData" :key="ayah.ID" 
-        class="bg-gray-800 p-4 rounded-lg shadow-lg space-y-4"
+        class="p-4 rounded-lg shadow-lg space-y-4"
         :id="'ayah-' + index"
       >
         <div class="flex justify-between items-center">
@@ -110,11 +117,19 @@ const getAyah = async() => {
           >
             Your browser does not support the audio element.
           </audio>
-          <button @click="playAudio(index)" class="mt-2 p-2 bg-gray-900 text-white rounded-md hover:opacity-60">
+          <button @click="playAudio(index)" class="mt-2 px-2 bg-gray-700 text-primary rounded-lg hover:opacity-60">
             Play
           </button>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- Back Button -->
+    <div class="p-4 text-center">
+      <NuxtLink href="/alquran" class="bg-gray-700 text-primary rounded-lg px-4 py-2 hover:opacity-60">
+        Kembali
+      </NuxtLink>
+    </div>
+
+</div>
 </template>

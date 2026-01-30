@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-900 text-white dark:bg-gray-900">
+    <div class="bg-gray-900 text-primary dark:bg-gray-900">
         <div class="container mx-auto flex flex-col min-h-screen font-rubik">
             <nav class="pt-2 w-full fixed sm:relative flex gap-4 justify-between items-center uppercase
         text-base font-semibold bg-gray-900 shadow-lg sm:shadow-none z-50 border-b sm:border-b border-gray-500">

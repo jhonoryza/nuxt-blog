@@ -124,7 +124,7 @@ function formatDate(dateStr: string): string {
                 <h1 class="text-xl font-bold mb-4">public chat</h1>
 
                 <!-- Messages -->
-                <div class="border shadow-2xl rounded p-3 h-96 overflow-y-auto mb-4">
+                <div class="border shadow-2xl rounded-xl p-3 h-96 overflow-y-auto mb-4">
                     <button v-if="!loadingOlder" class="text-blue-600 underline mb-2" @click="loadOlderMessages">
                         refresh
                     </button>
@@ -138,7 +138,7 @@ function formatDate(dateStr: string): string {
                         </svg>
                         Loading...
                     </div>
-                    <div v-for="(msg) in messages" :key="msg.id" class="mb-3 p-2 rounded-lg bg-gray-800">
+                    <div v-for="(msg) in messages" :key="msg.id" class="mb-3 p-2 rounded-lg">
                         <div class="flex flex-col items-end justify-between mb-1">
                             <span class="text-xs">{{ formatDate(msg.created_at) }}</span>
                             <span class="font-semibold text-sm">{{ msg.user_id }}</span>
@@ -155,7 +155,7 @@ function formatDate(dateStr: string): string {
                         <input v-model="newMessage" type="text" placeholder="Type your message..."
                             class="border rounded p-2 text-gray-900 bg-gray-300" @keyup.enter="sendMessage" />
                     </div>
-                    <button @click="sendMessage" class="bg-indigo-800 hover:bg-indigo-900 text-white px-4 py-2 rounded">
+                    <button @click="sendMessage" class="bg-indigo-800 hover:bg-indigo-900 text-primary px-4 py-2 rounded">
                         Send
                     </button>
                 </div>

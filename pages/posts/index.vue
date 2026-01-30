@@ -121,7 +121,7 @@ const gotoDetail = (slug) => {
     <!-- table -->
     <div class="mt-10 overflow-x-auto rounded-lg shadow-md">
       <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
-        <thead class="text-white dark:bg-primary-dark">
+        <thead class="text-primary dark:bg-primary-dark">
           <tr>
             <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">
               <div class=" flex items-center gap-2 hover:cursor-pointer hover:opacity-60" @click="setSort('published_at')">
@@ -151,12 +151,12 @@ const gotoDetail = (slug) => {
             </th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-          <tr class="hover:bg-gray-100 dark:hover:bg-gray-800 transition hover:cursor-pointer hover:opacity-60"
+        <tbody class="divide-y divide-gray-200 text-primary">
+          <tr class="transition hover:cursor-pointer hover:opacity-60"
             v-for="post in posts" :key="post.id" @click="gotoDetail(post.slug)"
           >
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ post.published_at }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300 flex flex-col items-start">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{{ post.published_at }}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm flex flex-col items-start">
               <p class="font-bold text-base">{{ post.title }}</p>
               <p class="text-secondary text-xs" v-html="post.summary"></p>
             </td>

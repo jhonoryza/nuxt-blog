@@ -133,8 +133,8 @@ const gotoDetail = async(link) => {
 
     <!-- table -->
     <div class="mt-10 overflow-x-auto rounded-lg shadow-md">
-      <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
-        <thead class="text-white dark:bg-primary-dark">
+      <table class="min-w-full divide-y divide-gray-300">
+        <thead class="text-primary">
           <tr>
             <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">
               <div class=" flex items-center gap-2 hover:cursor-pointer hover:opacity-60" @click="setSort('published_at')">
@@ -164,12 +164,12 @@ const gotoDetail = async(link) => {
             </th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-          <tr class="hover:bg-gray-100 dark:hover:bg-gray-800 transition hover:cursor-pointer hover:opacity-60"
+        <tbody class="divide-y divide-gray-200">
+          <tr class="transition hover:cursor-pointer hover:opacity-60"
             v-for="tool in tools" :key="tool.ID" @click="gotoDetail(tool.Link)"
           >
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ tool.ID }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300 flex flex-col items-start">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{{ tool.ID }}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm flex flex-col items-start">
               <p class="font-bold text-base">{{ tool.Name }}</p>
               <p class="text-secondary text-xs" v-html="tool.Description"></p>
             </td>

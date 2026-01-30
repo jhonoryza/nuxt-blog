@@ -49,9 +49,9 @@ const gotoDetail = (id, surahName) => {
 </script>
 
 <template>
-  <div class="bg-gray-900 text-white min-h-screen px-6">
+  <div class="bg-gray-900 text-primary min-h-screen px-6">
     <div class="text-center mb-8">
-      <h1 class="text-4xl font-semibold text-gray-100">Al-Quran</h1>
+      <h1 class="text-4xl font-semibold text-primary">Al-Quran</h1>
     </div>
 
     <!-- Daftar Surah -->
@@ -65,11 +65,11 @@ const gotoDetail = (id, surahName) => {
       >
         <div class="flex flex-col h-full">
           <div class="text-left mb-4">
-            <p class="text-2xl font-semibold text-gray-200 font-arab">{{ surah.Arabic }}</p>
+            <p class="text-2xl font-semibold text-primary font-arab">{{ surah.Arabic }}</p>
             <p class="text-sm text-gray-400">{{ surah.Translation }} | {{ surah.NumAyah }} Ayah</p>
           </div>
           <div class="text-right">
-            <p class="text-lg text-gray-100">{{ surah.Latin }}</p>
+            <p class="text-lg text-primary">{{ surah.Latin }}</p>
             <p class="text-xs text-gray-500">{{ surah.Location }}</p>
           </div>
         </div>

@@ -17,7 +17,7 @@ export default {
         "arab": ["Lateef"],
       },
       colors: {
-        "primary": "#333333",
+        "primary": "#edf2fc",
         "secondary": "#b0b0b0",
         "link": "#377fab",
         "link-hover": "#1f6793",

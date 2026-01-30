@@ -39,7 +39,7 @@ const downloadPDF = async () => {
       <button
         @click="downloadPDF"
         :disabled="loading"
-        class="bg-accent hover:bg-accent/80 text-white font-bold py-2 px-4 rounded"
+        class="bg-accent hover:bg-accent/80 text-primary font-bold py-2 px-4 rounded"
       >
         <span v-if="loading">Downloading...</span>
         <span v-else>Download</span>

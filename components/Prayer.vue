@@ -94,7 +94,7 @@ const nextPrayer = computed(() => {
 </script>
 
 <template>
-  <div class="bg-gray-800 text-white px-6 rounded-lg shadow-lg max-w-md mx-auto dark:bg-gray-900 dark:text-gray-200">
+  <div class="text-primary px-6 rounded-lg shadow-lg max-w-md mx-auto">
     <div class="text-center">
       <!-- Tanggal Hari Ini -->
       <h1 class="text-2xl font-semibold mb-4">Jadwal Sholat Hari Ini</h1>

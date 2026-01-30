@@ -1,13 +1,13 @@
 <style>
 .router-link-active {
-    @apply bg-link text-white;
+    @apply bg-link text-primary;
 }
 </style>
 <template>
     <div class="flex flex-col sm:flex-row items-center justify-evenly w-full">
         <div class="flex gap-0 sm:gap-12 w-full items-center justify-evenly">
             <!-- Home -->
-            <NuxtLink to="/" class="flex lg:hidden hover:bg-link hover:text-white p-2 items-center">
+            <NuxtLink to="/" class="flex lg:hidden hover:bg-link hover:text-primary p-2 items-center">
                 <span>
                     <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -24,7 +24,7 @@
             </NuxtLink>
 
             <!-- Posts -->
-            <NuxtLink to="/posts" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="/posts" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- Blog Icon SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 32 32">
@@ -39,7 +39,7 @@
             </NuxtLink>
 
             <!-- Tools -->
-            <NuxtLink to="/tools" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="/tools" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- Tools Icon SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -51,7 +51,7 @@
             </NuxtLink>
 
             <!-- Prayer -->
-            <NuxtLink to="/prayers" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="/prayers" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- Tools Icon SVG -->
                     <svg fill="#ffffff" class="w-5 h-5" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@
         </div>
         <div class="flex gap-0 sm:gap-12 w-full items-center justify-evenly">
             <!-- AlQuran -->
-            <NuxtLink to="/alquran" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="/alquran" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- Tools Icon SVG -->
                     <svg fill="#ffffff" class="w-5 h-5" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +104,7 @@
             </NuxtLink>
 
             <!-- Work with me -->
-            <NuxtLink to="/work-with-me" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="/work-with-me" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- Me Icon SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -116,7 +116,7 @@
             </NuxtLink>
 
             <!-- About -->
-            <NuxtLink to="/about" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="/about" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- About Icon SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -128,7 +128,7 @@
             </NuxtLink>
 
             <!-- Chat -->
-            <NuxtLink to="/chat" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="/chat" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- Chat Icon SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
@@ -147,7 +147,7 @@
             </NuxtLink>
 
             <!-- OpenAPI -->
-            <NuxtLink to="https://api-blog.labkita.my.id/doc" target="_blank" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="https://api-blog.labkita.my.id/doc" target="_blank" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- OpenAPI Icon SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
@@ -168,7 +168,7 @@
             </NuxtLink>
 
             <!-- CV -->
-            <NuxtLink to="/cv" class="hover:bg-link hover:text-white p-2 flex items-center">
+            <NuxtLink to="/cv" class="hover:bg-link hover:text-primary p-2 flex items-center">
                 <span class="block lg:hidden">
                     <!-- Common CV Icon (Document) -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
