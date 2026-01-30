@@ -7,19 +7,27 @@
     "phone": "+6289664658885",
     "github": "jhonoryza",
     "portfolio": "https://labkita.my.id/engineers",
-    "web": "https://labkita.my.id",
+    "web": "https://blog.labkita.my.id",
     "blog": "https://blog.labkita.my.id"
   },
   "summary": "I'm a full-stack web developer and author living near Bandung, Indonesia. I have over exp_year years experience building web applications, APIs services using different languages and technologies. I value friendliness and kindness in interactions, also simplicity and clarity in code, architecture and workflows",
+  "skripsi": {
+      "title": "Pararelisasi berbasis gpu pada simulasi model element diskrit 2D",
+      "stack": "C++",
+      "library": "SFML, CUDA",
+      "hardware": "GT640, GT9500",
+      "demo": "https://www.youtube.com/watch?v=19M_dE-TeXM"
+  },
   "experience": [
     {
       "company": "Rolling Glory",
-      "position": "Software Developer",
-      "period": "Nov 2024 – Nov 2025",
+      "position": "Fullstack Developer",
+      "period": "Nov 2024 – Nov 2026",
       "location": "Bandung, Indonesia",
       "responsibilities": [
-        "Scope: Analyze new Requirement, Project Development, Project Maintenance, ERD Design",
-        "Stack: NestJS, Laravel",
+        "Scope: Development, Maintenance, Documentation",
+        "Backend Stack: NestJS, PHP Laravel",
+        "Frontend Stack: Nodejs, Vue, React, Tailwind",
         "DB: PostgreSQL, MySQL, Redis",
         "Infra: AWS",
         "Integration: TADA, Goat Gaming"
@@ -28,13 +36,17 @@
     {
       "company": "Freelance",
       "position": "Full Stack Developer",
-      "period": "Nov 2023 – Present",
+      "period": "Nov 2023 – Jan 2025",
       "location": "Bandung, Indonesia",
       "responsibilities": [
-        "Scope: Analyze new Requirement, Project Development, Project Maintenance, ERD Design",
-        "Stack: Laravel, Livewire, AlpineJS, FilamentPHP, Inertia, Vue, React, TailwindCSS, Bootstrap",
-        "DB: MySQL, Redis",
-        "Infra: Linode, VPS, Docker, Traefik, Minio",
+        "Scope: Development, Maintenance, Deployment, Documentation",
+        "Backend Stack: NestJS, PHP Laravel, Go",
+        "Frontend Stack: Nodejs, Vue, React, Svelte, InertiaJs, AlpineJS",
+        "Css Stack: TailwindCSS, Bootstrap",
+        "DB: PostgreSQL, MySQL, Redis",
+        "Infra: Linode, VPS",
+        "Storage: S3, R2, Minio",
+        "Webserver: Traefik, Nginx",
         "Deploy: Docker, Github Action",
         "Integration: RajaOngkir, Midtrans, BPJH"
       ]
@@ -45,12 +57,15 @@
       "period": "Jul 2022 – Oct 2024",
       "location": "Bandung, Indonesia",
       "responsibilities": [
-        "Scope: Research, Code Review, ERD Review, MD Estimation, Mentorship, Project Maintenance",
-        "Stack: Laravel, Livewire, Alpinejs, Bootstrap, Tailwindcss, Nodejs, Vuejs",
-        "DB: MySQL, Redis, PostgreSQL, Oracle",
-        "Infra: VPS, GCP, AWS, Nginx, Traefik, Minio",
+        "Scope: RnD, Hiring, Mentorship, Maintenance, Documentation, Deployment",
+        "Backend Stack: PHP Laravel",
+        "Frontend Stack: Nodejs, Vue, TailwindCSS, Bootstrap, InertiaJs, AlpineJS",
+        "DB: MySQL, Redis, Memcached, PostgreSQL, Oracle",
+        "Infra: VPS, GCP, AWS",
+        "Storage: S3, Minio",
+        "Webserver: Traefik, Nginx",
         "Deploy: Docker, Gitlab CI/CD",
-        "Integration: Kemenag"
+        "Integration: Kemenag, Eiger, JNE"
       ]
     },
     {
@@ -59,12 +74,15 @@
       "period": "Apr 2019 – Jun 2022",
       "location": "Bandung, Indonesia",
       "responsibilities": [
-        "Scope: Analyze new Requirement, Project Development, Project Maintenance, ERD Design",
-        "Stack: Laravel, Livewire, Alpinejs, Bootstrap, Tailwindcss, Nodejs, Vuejs",
-        "DB: MySQL, Redis, PostgreSQL, Oracle",
-        "Infra: VPS, GCP, AWS, Nginx, Traefik, Minio",
+        "Scope: Development, Maintenance, Documentation, Code Review",
+        "Backend Stack: PHP Laravel",
+        "Frontend Stack: Nodejs, Vue, TailwindCSS, Bootstrap, InertiaJs, AlpineJS",
+        "DB: MySQL, Redis, Memcached, PostgreSQL, Oracle",
+        "Infra: VPS, GCP, AWS",
+        "Storage: S3, Minio",
+        "Webserver: Traefik, Nginx",
         "Deploy: Docker, Gitlab CI/CD",
-        "Integration: Mandiri Sekuritas, RS Mata SMEC, Vidio, KSEI, Eiger, JNE"
+        "Integration: Mandiri Sekuritas, RS Mata SMEC, Vidio, KSEI"
       ]
     },
     {
@@ -73,10 +91,10 @@
       "period": "Oct 2015 – Apr 2019",
       "location": "Bandung, Indonesia",
       "responsibilities": [
-        "Scope: Analyze new requirements, Research and development of IoT systems, PCB board design and supervision of IoT production, Programming embedded systems",
+        "Scope: RnD, Hardware design and production, Development",
         "Stack: C/C++, Pyhton, Java, PHP, Bash",
-        "Infra: VM Internal",
-        "Hardware: Raspberry PI, Orange PI, Arduino, ESP, ATMEGA, GSM, GPS Module"
+        "Infra: VPS",
+        "Hardware: Raspberry PI, Orange PI, Arduino, ESP, ATMEGA, GSM, GPS"
       ]
     },
     {
@@ -84,10 +102,10 @@
       "position": "Lab Assistant",
       "period": "Aug 2011 – Jan 2014",
       "responsibilities": [
-        "Microcontroller Lab Assistant",
-        "Signal Processing Lab Assistant",
-        "Instrumentation Lab Assistant",
-        "Electronics Lab Assistant"
+        "Microcontroller Lab",
+        "Signal Processing Lab",
+        "Instrumentation Lab",
+        "Electronics Lab"
       ]
     }
   ],
@@ -104,19 +122,29 @@
     }
   ],
   "skills": [
-    "PHP / Laravel",
+    "PHP",
+    "JavaScript",
+    "TypeScript",
     "NodeJS",
-    "NestJS",
-    "Golang",
-    "JavaScript / TypeScript",
     "React",
     "Vue",
     "Svelte",
     "Flutter",
-    "Tailwind CSS / Bootstrap",
-    "Web Development / Maintenance",
-    "Docker, Gitlab CI/CD, Github Action",
-    "Infra (AWS, GCP, Linode, Oracle)"
+    "Golang",
+    "Rust",
+    "C",
+    "C++",
+    "C#",
+    "Python",
+    "Java",
+    "Tailwind",
+    "Bootstrap",
+    "Docker",
+    "CI/CD",
+    "AWS",
+    "GCP",
+    "Linode",
+    "Oracle"
   ],
   "awards": [
     {
