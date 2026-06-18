@@ -70,6 +70,15 @@ export const useAdminApi = () => {
     })
   }
 
+  const getPresignUrl = async (filename: string, size: number) => {
+    const response = await $fetch(`${apiURL}api/uploads/presign`, {
+      method: 'POST',
+      body: { filename, size },
+      headers: getHeaders(),
+    })
+    return extractData(response)
+  }
+
   const logout = () => {
     const token = useCookie('auth-token')
     token.value = null
@@ -83,6 +92,7 @@ export const useAdminApi = () => {
     createPost,
     updatePost,
     deletePost,
+    getPresignUrl,
     logout,
   }
 }

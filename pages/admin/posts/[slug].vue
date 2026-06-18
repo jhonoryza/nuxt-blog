@@ -4,7 +4,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MarkdownRenderer } from "#components";
-import { formatAdminPostDate, parseAdminPostDate } from "~/utils/adminPostDates";
+import { formatAdminPostDate, parseAdminPostDate } from "~/utils/adminPostDates"
+import { ImageUpload } from "#components";
 
 useHead({
   title: 'Edit Post | Admin',
@@ -31,10 +32,13 @@ const form = ref({
   content: '',
   published_at: '',
   author_id: null,
+  is_markdown: true,
+})
+
+const imagePaths = ref({
   image_url: 'posts/20240819-030927-golang.png',
   image_tw_url: 'posts/twitter/golang-notes.png',
   image_thumb_url: 'posts/thumbnail/golang-notes.png',
-  is_markdown: true,
 })
 const loading = ref(true)
 const saving = ref(false)
@@ -51,9 +55,9 @@ const fetchPost = async () => {
     form.value.content = post.content || ''
     form.value.published_at = parseAdminPostDate(post.published_at)
     form.value.author_id = post.author_id || post.user_id || null
-    if (post.image_url) form.value.image_url = post.image_url
-    if (post.image_tw_url) form.value.image_tw_url = post.image_tw_url
-    if (post.image_thumb_url) form.value.image_thumb_url = post.image_thumb_url
+    if (post.image_url) imagePaths.value.image_url = post.image_url
+    if (post.image_tw_url) imagePaths.value.image_tw_url = post.image_tw_url
+    if (post.image_thumb_url) imagePaths.value.image_thumb_url = post.image_thumb_url
     form.value.is_markdown = post.is_markdown ?? true
   } catch (err) {
     errorMsg.value = 'Failed to load post'
@@ -79,9 +83,9 @@ const handleSave = async () => {
       summary: form.value.summary,
       content: form.value.content,
       author_id: form.value.author_id,
-      image_url: form.value.image_url,
-      image_tw_url: form.value.image_tw_url,
-      image_thumb_url: form.value.image_thumb_url,
+      image_url: imagePaths.value.image_url,
+      image_tw_url: imagePaths.value.image_tw_url,
+      image_thumb_url: imagePaths.value.image_thumb_url,
       is_markdown: form.value.is_markdown,
       published_at: formatAdminPostDate(form.value.published_at),
     }
@@ -203,27 +207,12 @@ const handleSave = async () => {
                 />
               </div>
 
-              <details class="border border-border rounded-md p-3">
-                <summary class="cursor-pointer text-sm font-medium">Image paths (click to edit)</summary>
-                <div class="flex flex-col gap-3 mt-3">
-                  <div class="flex flex-col gap-1.5">
-                    <label for="image_url" class="text-xs font-medium">Image URL</label>
-                    <Input id="image_url" v-model="form.image_url" type="text" class="font-mono text-xs" />
-                  </div>
-                  <div class="flex flex-col gap-1.5">
-                    <label for="image_tw_url" class="text-xs font-medium">Image Twitter URL</label>
-                    <Input id="image_tw_url" v-model="form.image_tw_url" type="text" class="font-mono text-xs" />
-                  </div>
-                  <div class="flex flex-col gap-1.5">
-                    <label for="image_thumb_url" class="text-xs font-medium">Image Thumbnail URL</label>
-                    <Input id="image_thumb_url" v-model="form.image_thumb_url" type="text" class="font-mono text-xs" />
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <input id="is_markdown" v-model="form.is_markdown" type="checkbox" class="rounded" />
-                    <label for="is_markdown" class="text-xs font-medium">Is Markdown</label>
-                  </div>
-                </div>
-              </details>
+              <div class="flex items-center gap-2">
+                <input id="is_markdown" v-model="form.is_markdown" type="checkbox" class="rounded" />
+                <label for="is_markdown" class="text-xs font-medium">Is Markdown</label>
+              </div>
+
+              <ImageUpload v-model="imagePaths" />
             </div>
           </Card>
 
