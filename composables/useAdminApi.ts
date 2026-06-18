@@ -34,7 +34,7 @@ export const useAdminApi = () => {
 
   const getPosts = async (params: Record<string, any> = {}) => {
     const queryString = new URLSearchParams(params).toString()
-    const response = await $fetch(`${apiURL}api/posts?${queryString}`, {
+    const response = await $fetch(`${apiURL}api/admin/posts?${queryString}`, {
       headers: getHeaders(),
     })
     return extractData(response)
