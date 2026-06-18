@@ -14,19 +14,22 @@ const today = weekday[now.getDay()];
 
 <template>
     <footer>
+        <div class="flex justify-center items-center px-4 py-3 border-t border-border">
+            <ThemeToggle />
+        </div>
         <div
-            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 text-secondary text-xs sm:text-sm px-4 py-4">
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 text-muted-foreground text-xs sm:text-sm px-4 py-4">
           <div>
             © Copyright 2024 Fajar SP<br/>Code snippets are
             <a
                 href="https://opensource.org/licenses/MIT"
-                class="hover:text-link hover:underline"
+                class="hover:text-primary hover:underline"
                 target="_blank"
             >
               MIT licensed
             </a>
             <br/>
-            <NuxtLink to="/disclaimer" class="text-link hover:text-link-hover hover:underline">
+            <NuxtLink to="/disclaimer" class="text-primary hover:text-primary/80 hover:underline">
               Disclaimer
             </NuxtLink>
           </div>

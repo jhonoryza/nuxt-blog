@@ -4,7 +4,21 @@ export default defineNuxtConfig({
     modules: [
         '@zadigetvoltaire/nuxt-gtm',
         '@pinia/nuxt',
+        'shadcn-nuxt',
+        '@nuxtjs/color-mode',
     ],
+
+    shadcn: {
+        prefix: '',
+        componentDir: './components/ui',
+    },
+
+    colorMode: {
+        classSuffix: '',
+        preference: 'system',
+        fallback: 'dark',
+        storageKey: 'color-mode',
+    },
 
     gtm: {
         id: process.env.GTM_ID || '',
@@ -13,7 +27,7 @@ export default defineNuxtConfig({
 
     devtools: { enabled: true },
 
-    css: ['~/assets/css/main.css', '~/assets/css/style.css'],
+    css: ['~/assets/css/main.css'],
 
     postcss: {
         plugins: {
@@ -28,12 +42,7 @@ export default defineNuxtConfig({
         ]
     },
 
-    plugins: [
-        {
-            src: '~/plugins/vue-markdown-shiki.js',
-            mode: 'client'
-        }
-    ],
+    plugins: [],
 
     runtimeConfig: {
         public: {

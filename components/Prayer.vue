@@ -1,8 +1,6 @@
 <script setup>
 import { usePrayersStore } from '~/stores/prayers';
 
-const runtimeConfig = useRuntimeConfig();
-
 const prayersStore = usePrayersStore();
 
 const timeZone = ref("Asia/Jakarta")

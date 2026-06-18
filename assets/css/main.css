@@ -1,7 +1,65 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lateef:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ubuntu+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: oklch(0.9581 0 0);
+    --foreground: oklch(0.3134 0.0234 253.627);
+    --card: oklch(0.9774 0.0042 236.496);
+    --card-foreground: oklch(0.2022 0.011 151.163);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.2505 0.0149 235.626);
+    --primary: oklch(0.6112 0.1217 248.957);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.9122 0.0111 243.663);
+    --secondary-foreground: oklch(0.4186 0.0133 235.133);
+    --muted: oklch(0.9209 0.0128 244.263);
+    --muted-foreground: oklch(0.6027 0.0062 211.038);
+    --accent: oklch(0.9122 0.0111 243.663);
+    --accent-foreground: oklch(0.2505 0.0149 235.626);
+    --destructive: oklch(0.1931 0.0037 164.63);
+    --destructive-foreground: oklch(1 0 0);
+    --border: oklch(0.884 0.0067 208.781);
+    --input: oklch(0.745 0.0121 252.12);
+    --ring: oklch(0.6112 0.1217 248.957);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: oklch(0.1776 0 0);
+    --foreground: oklch(0.7905 0.0126 259.824);
+    --card: oklch(0.2638 0.0024 247.916);
+    --card-foreground: oklch(0.9755 0.0045 258.325);
+    --popover: oklch(0.3046 0.0023 247.9);
+    --popover-foreground: oklch(0.9176 0.0026 228.787);
+    --primary: oklch(0.6576 0.1208 252.083);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.9774 0.0042 236.496);
+    --secondary-foreground: oklch(0.3046 0.0023 247.9);
+    --muted: oklch(0.2171 0.0025 247.941);
+    --muted-foreground: oklch(0.7559 0.0125 239.966);
+    --accent: oklch(0.2038 0.0067 258.368);
+    --accent-foreground: oklch(0.959 0.0059 239.82);
+    --destructive: oklch(0.6368 0.2078 25.331);
+    --destructive-foreground: oklch(1 0 0);
+    --border: oklch(0.3506 0.0066 248.017);
+    --input: oklch(0.4217 0.0084 248.028);
+    --ring: oklch(0.6576 0.1208 252.083);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    letter-spacing: -0.01em;
+  }
+}

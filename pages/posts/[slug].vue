@@ -1,81 +1,67 @@
 <script setup>
-import {VueMarkdownIt} from "vue-markdown-shiki";
-import { useRoute, useRuntimeConfig, useHead, useAsyncData } from '#imports'
+import { onMounted, ref } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { Card } from "@/components/ui/card";
 
-const route = useRoute()
-const runtimeConfig = useRuntimeConfig()
+const runtimeConfig = useRuntimeConfig();
+const route = useRoute();
+const router = useRouter();
+const post = ref(null);
+const loading = ref(true);
 
-const { data: post } = await useAsyncData('post', async () => {
-  const url = runtimeConfig.public.apiURL + 'api/posts/' + route.params.slug
-  const resp = await $fetch(url)  // Nuxt sudah ada $fetch, lebih enak dari fetch biasa
-  if (resp.code === 200) {
-    // resp.data.content = resp.data.content.replace(/```rs\b/g, '```rust')
-    return resp.data
-  }
-  throw new Error('Post not found')
-})
+onMounted(() => {
+    fetchPost();
+});
 
-const scrollToTop = () => {
-  window.scrollTo({top: 0, behavior: "smooth"});
+const fetchPost = async () => {
+    loading.value = true;
+    const url = runtimeConfig.public.apiURL + "api/posts/" + route.params.slug;
+    try {
+        const resp = await fetch(url);
+        const json = await resp.json();
+        if (json.code === 200) {
+            post.value = json.data;
+        }
+    } catch (err) {
+        console.log(err);
+    } finally {
+        loading.value = false;
+    }
 };
 
-useHead(() => ({
-  title: post.value?.title || 'Blog posts',
-  meta: [
-    { name: 'description', content: post.value?.summary || 'My notes about everything' },
-    { property: 'og:title', content: post.value?.title || 'Blog posts' },
-    { property: 'og:description', content: post.value?.summary || 'My notes about everything' },
-    { property: 'og:image', content: post.value?.image_url || '/banner.png' },
-
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: post.value?.title || 'Blog posts' },
-    { name: 'twitter:description', content: post.value?.summary || 'My notes about everything' },
-    { name: 'twitter:image', content: post.value?.image_url || '/banner.png' }
-  ]
-}))
-
+const backToPosts = () => {
+    router.push("/");
+};
 </script>
 
 <template>
-  <div class="mx-auto max-w-6xl  text-base sm:text-lg px-4">
-    <NuxtLink to="/posts" class="p-2 text-primary rounded-lg hover:bg-link">
-      ⬅ Go Back
-    </NuxtLink>
-    <article v-if="post" class="flex flex-col gap-1 my-12">
-      <img class="h-48 w-52 rounded-md bg-cover" :src="post.image_url" alt="post image"/>
-      <h1 class="mt-4 text-4xl sm:text-5xl font-bold">{{ post.title }}</h1>
-      <span class="mt-4 text-base text-secondary">
-        Published on: {{ post.published_at }}
-      </span>
-      <span class="mt-0 text-base">Categories: {{ post.categories_name }}</span>
-      <span class="mt-0 text-base">Author: {{ post.author_name }}</span>
-      <client-only> 
-        <VueMarkdownIt class="mt-4" 
-          :content="post.content"
-        />
-      </client-only>
-    </article>
-    <div class="flex justify-between">
-      <NuxtLink to="/posts" class="p-2 text-primary rounded-lg hover:bg-link">
-        ⬅ Go Back
-      </NuxtLink>
-      <button
-          @click="scrollToTop"
-          class="px-4 py-2 text-primary rounded-full hover:bg-gray-400"
-      >
-        ⬆
-      </button>
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 pt-6 sm:pt-8 pb-8">
+        <button 
+            @click="backToPosts" 
+            class="text-muted-foreground hover:text-foreground font-medium mb-6 transition-colors"
+        >
+            &larr; Back to posts
+        </button>
+        
+        <div v-if="post" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-3">
+                <h1 class="text-3xl sm:text-4xl font-bold leading-tight">{{ post.title }}</h1>
+                <p class="text-sm text-muted-foreground">{{ post.published_at }}</p>
+            </div>
+            
+            <Card class="p-0 overflow-hidden bg-card">
+                <ClientOnly>
+                    <MarkdownRenderer :content="post.content" />
+                </ClientOnly>
+            </Card>
+        </div>
+        
+        <div v-else-if="!loading" class="text-center py-12">
+            <p class="text-muted-foreground">Post not found</p>
+        </div>
+        
+        <div v-else class="text-center py-12">
+            <p class="text-muted-foreground">Loading...</p>
+        </div>
     </div>
-  </div>
 </template>
-
-<style scoped>
-:deep(.vp-doc) {
-  color: white !important;
-}
-:deep(.vp-doc table td),
-:deep(.vp-doc table th) {
-  color: white !important;
-  background-color: black !important;
-}
-</style>

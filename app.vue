@@ -1,12 +1,11 @@
 <template>
-    <div class="bg-gray-900 text-primary dark:bg-gray-900">
-        <div class="container mx-auto flex flex-col min-h-screen font-rubik">
-            <nav class="pt-2 w-full fixed sm:relative flex gap-4 justify-between items-center uppercase
-        text-base font-semibold bg-gray-900 shadow-lg sm:shadow-none z-50 border-b sm:border-b border-gray-500">
+    <div class="bg-background text-foreground">
+        <div class="flex flex-col min-h-screen font-sans">
+            <nav class="w-full fixed sm:relative flex justify-between items-center px-4 py-2 text-base font-semibold bg-background shadow-lg sm:shadow-none z-50 border-b border-border">
                 <Logo />
                 <TopNav />
             </nav>
-            <main class="mt-28 sm:mt-10 grow">
+            <main class="mt-20 sm:mt-10 grow">
                 <NuxtPage />
             </main>
             <Footer />
