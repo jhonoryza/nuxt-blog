@@ -41,7 +41,7 @@ export const useAdminApi = () => {
   }
 
   const getPost = async (slug: string) => {
-    const response = await $fetch(`${apiURL}api/posts/${slug}`, {
+    const response = await $fetch(`${apiURL}api/admin/posts/${slug}`, {
       headers: getHeaders(),
     })
     return extractData(response)
