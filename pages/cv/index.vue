@@ -34,7 +34,7 @@ const downloadPDF = async () => {
 </script>
 
 <template>
-  <div class="mx-auto max-w-4xl px-4 py-8">
+  <div class="mx-auto max-w-4xl px-4 pb-8">
     <div class="flex flex-col gap-6">
       <div class="flex items-center justify-between">
         <div>

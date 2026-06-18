@@ -1,8 +1,9 @@
 <script setup>
-import {onMounted, ref} from "vue";
+import {onMounted, ref, onBeforeUnmount} from "vue";
 import { useRouter } from "vue-router";
 import { Input } from "@/components/ui/input";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 
 useHead(() => ({
   title: 'Tools',
@@ -26,9 +27,28 @@ const sortDir = ref("desc");
 const sortBy = ref("id");
 const apiURL = runtimeConfig.public.apiURL + "api/tools";
 
+const showJumpButtons = ref(false);
+
 onMounted(() => {
   fetchAll();
+  window.addEventListener("scroll", handleScroll);
 });
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+const handleScroll = () => {
+  showJumpButtons.value = window.scrollY > 300;
+};
+
+const jumpToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+const jumpToBottom = () => {
+  window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
+};
 
 const fetchAll = async () => {
   const url = apiURL + "?type=" + typeQuery.value + "&sortDir=" + sortDir.value + "&sortBy=" + sortBy.value;
@@ -106,7 +126,7 @@ const gotoDetail = async(link) => {
 </script>
 
 <template>
-  <div class="mx-auto max-w-4xl px-4">
+  <div class="mx-auto max-w-4xl px-4 pb-8">
     <h1 class="text-3xl font-bold">Tools</h1>
     <p class="text-muted-foreground italic mt-1 text-sm">collection of useful tools</p>
     <div class="mt-4 flex gap-4">
@@ -161,6 +181,19 @@ const gotoDetail = async(link) => {
           </TableRow>
         </TableBody>
       </Table>
+    </div>
+
+    <div v-if="showJumpButtons" class="fixed bottom-6 right-6 flex flex-col gap-2 z-50">
+      <Button size="icon" variant="outline" @click="jumpToTop" title="Jump to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </Button>
+      <Button size="icon" variant="outline" @click="jumpToBottom" title="Jump to bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </Button>
     </div>
   </div>
 </template>
