@@ -39,19 +39,23 @@ export default defineNuxtConfig({
     vite: {
         plugins: [
             // copyPublicPlugin(),
-        ]
+        ],
+    },
+
+    experimental: {
+        appManifest: false,
     },
 
     plugins: [],
 
     runtimeConfig: {
         public: {
-            apiURL: process.env.API_URL,
-            apiChatURL: process.env.API_CHAT_URL,
-            apiMercureURL: process.env.API_MERCUREHUB_URL,
+            apiURL: process.env.API_URL || '',
+            apiChatURL: process.env.API_CHAT_URL || '',
+            apiMercureURL: process.env.API_MERCUREHUB_URL || '',
             gtm: {
                 id: process.env.GTM_ID || '',
-                enabled: Boolean(process.env.GTM_ENABLED || true),
+                enabled: process.env.GTM_ENABLED === 'true',
             },
         }
     },

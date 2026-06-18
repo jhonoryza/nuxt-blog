@@ -21,6 +21,7 @@
   "devDependencies": {
     "@nuxtjs/color-mode": "^4.0.1",
     "@types/markdown-it": "^14.1.2",
+    "@vuepic/vue-datepicker": "^14.0.0",
     "@vueuse/core": "^14.3.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "autoprefixer": "^10.4.21",
