@@ -2,7 +2,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: [
-        '@zadigetvoltaire/nuxt-gtm',
         '@pinia/nuxt',
         'shadcn-nuxt',
         '@nuxtjs/color-mode',
@@ -18,11 +17,6 @@ export default defineNuxtConfig({
         preference: 'system',
         fallback: 'dark',
         storageKey: 'color-mode',
-    },
-
-    gtm: {
-        id: process.env.GTM_ID || '',
-        enabled: Boolean(process.env.GTM_ENABLED || true),
     },
 
     devtools: { enabled: true },
@@ -53,10 +47,6 @@ export default defineNuxtConfig({
             apiURL: process.env.API_URL || '',
             apiChatURL: process.env.API_CHAT_URL || '',
             apiMercureURL: process.env.API_MERCUREHUB_URL || '',
-            gtm: {
-                id: process.env.GTM_ID || '',
-                enabled: process.env.GTM_ENABLED === 'true',
-            },
         }
     },
 
@@ -64,6 +54,13 @@ export default defineNuxtConfig({
         head: {
             link: [{ rel: 'icon', type: 'image/x-icon', href: '/labkita.png' }],
             title: 'Blog | Fajar SP',
+            script: [
+                { src: 'https://www.googletagmanager.com/gtag/js?id=G-F6CXH8P06Y', async: true },
+                {
+                    children: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-F6CXH8P06Y');`,
+                    type: 'text/javascript',
+                },
+            ],
         }
     },
 
